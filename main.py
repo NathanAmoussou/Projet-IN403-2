@@ -1,11 +1,24 @@
 # Partie 1 : Structure de données
 
 class Sommet():
-    def __init__(self, entrant: list, sortant: list):
+    def __init__(self, entrant: list, sortant: list, nom: str=""):
+        """
+        Crée un sommet avec ses arcs entrants et sortants et son nom (optionnel)
+        :param entrant: liste des arcs entrants
+        :param sortant: liste des arcs sortants
+        :param nom: nom du sommet
+        """
         self.entrant = entrant
         self.sortant = sortant
+        self.nom = nom
 
 class Arc():
+    """
+    Crée un arc avec son nom, sa nature et sa durée (optionnel)
+    :param nom: nom de l'arc
+    :param nature: nature de l'arc (téléski, télésiège, télécabine, téléphérique, piste verte, piste bleue, piste rouge, piste noire)
+    :param duree: durée de l'arc (en minutes)
+    """
     def __init__(self, nom: str, nature: str, duree: float=0):
         self.nature = nature
         self.nom = nom
@@ -141,24 +154,47 @@ arcs = {
 sommets = [
     Sommet(
         [arcs["CHANROSSA"], arcs["ROC MERLET"]],
-        [arcs["Chanrossa"], arcs["Jean Pachod"], arcs["Roc Merlet"]]
+        [arcs["Chanrossa"], arcs["Jean Pachod"], arcs["Roc Merlet"]],
+        "CHANROSSA"
     ),
     Sommet(
-        [arcs["Creux"], arcs["Jean Pachod"], arcs["Chanrossa"]],
-        [arcs["CHANROSSA"]]
+        [arcs["Creux"], arcs["Jean Pachod"], arcs["Chanrossa"], arcs["Rama"]],
+        [arcs["CHANROSSA"], arcs["MARMOTTES"], arcs["Creux"]],
+        "CREUX"
     ),
     Sommet(
-        [arcs["Roc Mugnier"], arcs["Creux"]],
-        [arcs["ROC MUGNIER"]]
+        [arcs["Roc Mugnier"], arcs["Creux"], arcs["Gravelles"]],
+        [arcs["ROC MUGNIER"], arcs["AIGUILLE DU FRUIT"], arcs["GRAVELLES"]],
+        "PRAMEUEL"
     ),
     Sommet(
-        [arcs["ROC MUGNIER"], arcs["Pyramide"], arcs["Mont Russes"], arcs["Plan Mugnier"]],
-        [arcs["Roc Mugnier"], arcs["PYRAMIDE"]]
+        [arcs["ROC MUGNIER"], arcs["COMBE"], arcs["Pyramide"], arcs["Mont Russes"], arcs["Plan Mugnier"], arcs["Grandes Bosses"]],
+        [arcs["Roc Mugnier"], arcs["PYRAMIDE"], arcs["Grandes Bosses"]]
     ),
     Sommet(
         [arcs["PYRAMIDE"], arcs["Roc Merlet"]],
         [arcs["Plan Mugnier"], arcs["Mont Russes"], arcs["Pyramide"], arcs["ROC MERLET"]]
-    )
+    ),
+    Sommet(
+        [arcs["CREUX NOIRS"]],
+        [arcs["Roches Grises"]],
+        "CREUX NOIRS"
+    ),
+    Sommet(
+        [arcs["SAULIRE"]],
+        [arcs["Grand Couloir"], arcs["Creux"], arcs["Combe Saulire"]],
+        "SAULIRE"
+    ),
+    Sommet(
+        [arcs["MARMOTTES"], arcs["SUISSES"], arcs["VIZELLE"]],
+        [arcs["Combe Saulire"], arcs["Combe Pylones"], arcs["m"]],
+        "VIZELLE"
+    ),
+    Sommet(
+        [],
+        [arcs["VIZELLE"], arcs["SAULIRE"]],
+        "VERDONS"
+    ),
 ]
 
 # Exemple
