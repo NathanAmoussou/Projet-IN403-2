@@ -11,9 +11,6 @@ class Arc():
         self.nom = nom
         self.duree = duree
 
-# Exemple :
-#abs
-
 arcs = {
     # Téléskis
     "PYRAMIDE": Arc("PYRAMIDE", "téléski"),
@@ -25,6 +22,12 @@ arcs = {
     "LOZE": Arc("LOZE", "téléski"),
     "STADE": Arc("STADE", "téléski"),
     "EPICEA": Arc("EPICEA", "téléski"),
+    "MARQUIS": Arc("MARQUIS", "téléski"),
+    "STE AGATHE": Arc("STE AGATHE", "téléski"),
+    "STADE": Arc("STADE", "téléski"),
+    "GRANGES": Arc("GRANGES", "téléski"),
+    "COMBE": Arc("COMBE", "téléski"),
+    "PTE BOSSE": Arc("PTE BOSSE", "téléski"),
     # Télésièges
     "CHANROSSA": Arc("CHANROSSA", "télésiège"),
     "ROC MERLET": Arc("ROC MERLET", "télésiège"),
@@ -40,6 +43,11 @@ arcs = {
     "CRÊTES": Arc("CRÊTES", "télésiège"),
     "PLANTREY": Arc("PLANTREY", "télésiège"),
     "TOVETS": Arc("TOVETS", "télésiège"),
+    "3 VALLÉES": Arc("3 VALLÉES", "télésiège"),
+    "CHAPELETS": Arc("CHAPELETS", "télésiège"), 
+    "SIGNAL": Arc("SIGNAL", "télésiège"),
+    "GRAVELLES": Arc("GRAVELLES", "télésiège"),
+    "AIGUILLE DU FRUIT": Arc("AIGUILLE DU FRUIT", "télésiège"),
     # Télécabines
     "VIZELLE": Arc("VIZELLE", "télécabine"),
     "JARDIN ALPIN": Arc("JARDIN ALPIN", "télécabine"),
@@ -49,6 +57,7 @@ arcs = {
     "CHENUS": Arc("CHENUS", "télécabine"),
     "VERDONS": Arc("VERDONS", "télécabine"),
     "GRANGETTES": Arc("GRANGETTES", "télécabine"),
+    "ARIONDAZ": Arc("ARIONDAZ", "télécabine"),
     # Téléphériques
     "SAULIRE": Arc("SAULIRE", "téléphérique"),
     # Pistes vertes
@@ -57,6 +66,8 @@ arcs = {
     "Lac Bleu": Arc("Lac Bleu", "piste verte"),
     "Loze Est": Arc("Loze Est", "piste verte"),
     "Plan Fontaine": Arc("Plan Fontaine", "piste verte"),
+    "Belvédère": Arc("Belvédère", "piste verte"),
+    "Praline": Arc("Praline", "piste verte"),
     # Pistes bleues
     "Plan Mugnier": Arc("Plan Mugnier", "piste bleue"),
     "Mont Russes": Arc("Mont Russes", "piste bleue"),
@@ -75,6 +86,15 @@ arcs = {
     "Tovets": Arc("Tovets", "piste bleue"),
     "Provères": Arc("Provères", "piste bleue"),
     "Cospillot": Arc("Cospillot", "piste bleue"),
+    "Piste Bleue": Arc("Piste Bleue", "piste bleue"),
+    "Marquis": Arc("Marquis", "piste bleue"),
+    "Granges": Arc("Granges", "piste bleue"),
+    "Carabosse": Arc("Carabosse", "piste bleue"),
+    "Grandes Bosses": Arc("Grandes Bosses", "piste bleue"),
+    "Ariondaz": Arc("Ariondaz", "piste bleue"),
+    "Indiens": Arc("Indiens", "piste bleue"),
+    "Gravelles": Arc("Gravelles", "piste bleue"),
+    "Prameruel": Arc("Prameruel", "piste bleue"),
     # Pistes rouges
     "Jean Pachod": Arc("Jean Pachod", "piste rouge"),
     "Roc Merlet": Arc("Roc Merlet", "piste rouge"),
@@ -102,6 +122,10 @@ arcs = {
     "Jantzen": Arc("Jantzen", "piste rouge"),
     "Chenus": Arc("Chenus", "piste rouge"),
     "Déviation 1550": Arc("Déviation 1550", "piste rouge"),
+    "Stade": Arc("Stade", "piste rouge"),
+    "Bel Air": Arc("Bel Air", "piste rouge"),
+    "Rochers": Arc("Rochers", "piste rouge"),
+    "Chapelets": Arc("Chapelets", "piste rouge"),
     # Pistes noires
     "Chanrossa": Arc("Chanrossa", "piste noire"),
     "Turcs": Arc("Turcs", "piste noire"),
