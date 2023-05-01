@@ -163,7 +163,7 @@ sommets = [
         "CREUX"
     ),
     Sommet(
-        [arcs["Roc Mugnier"], arcs["Creux"], arcs["Gravelles"]],
+        [arcs["Roc Mugnier"], arcs["Creux"], arcs["Gravelles"], arcs["Cave des Creux"], arcs["Mur"], arcs["Prameruel"]],
         [arcs["ROC MUGNIER"], arcs["AIGUILLE DU FRUIT"], arcs["GRAVELLES"]],
         "PRAMEUEL"
     ),
@@ -186,15 +186,53 @@ sommets = [
         "SAULIRE"
     ),
     Sommet(
-        [arcs["MARMOTTES"], arcs["SUISSES"], arcs["VIZELLE"]],
-        [arcs["Combe Saulire"], arcs["Combe Pylones"], arcs["m"]],
+        [arcs["MARMOTTES"], arcs["SUISSES"], arcs["VIZELLE"], arcs["Combe Saulire"]],
+        [arcs["Combe Saulire"], arcs["Combe Pylones"], arcs["m"], arcs["Turcs"], arcs["Suisses"]],
         "VIZELLE"
     ),
     Sommet(
-        [],
-        [arcs["VIZELLE"], arcs["SAULIRE"]],
+        [arcs["Combe Pylones"], arcs["Combe Saulire"], arcs["Grand Couloir"], arcs["Biollay Verdons"], arcs["m"], arcs["VERDONS"], arcs["SOURCES"]],
+        [arcs["VIZELLE"], arcs["SAULIRE"], arcs["Verdons"], arcs["Renard"], arcs["Biollay Verdons"]],
         "VERDONS"
     ),
+    Sommet(
+        [arcs["Combe Saulire"], arcs["Grand Couloir"], arcs["ROCHER DE L'OMBRE"]],
+        [arcs["Stade Descente"], arcs["Combe Saulire"]]
+    ),
+    Sommet(
+        [arcs["Lac Creux"]],
+        [arcs["Lac Creux"], arcs["CREUX NOIRS"]]
+    ),
+    Sommet(
+        [arcs["Turcs"], arcs["AIGUILLE DU FRUIT"]],
+        [arcs["Turcs"], arcs["Park City"]]
+    ),
+    Sommet(
+        [arcs["GRAVELLES"], arcs["Lac Creux"], arcs["Park City"]],
+        [arcs["Cave des Creux"], arcs["Altiport"]]
+    ),
+    Sommet(
+        [arcs["Turcs"], arcs["Suisses"], arcs["Altiport"], arcs["Super Pralong"]],
+        [arcs["SUISSES"], arcs["Mur"], arcs["Altiport"]]
+    ),
+    Sommet(
+        [arcs["PRALONG"]],
+        [arcs["Super Pralong"], arcs["Pralong"], arcs["Biollay Verdons"], arcs["Marquetty"], arcs["Biollay"]]
+    ),
+    Sommet(
+        [arcs["Pralong"], arcs["Altiport"]], # ajouter ALTIPORT
+        [arcs["Prameruel"], arcs["Pralong"], arcs["Altiport"]]
+    ),
+    Sommet(
+        [arcs["JARDIN ALPIN"], arcs["Biollay Verdons"]],
+        []
+    ),
+    Sommet(
+        [arcs["Biollay"], arcs["Altiport"]],
+        [arcs["PRALONG"]], # ajouter ALTIPORT
+        "PRALONG"
+    )
+
 ]
 
 # Exemple
