@@ -30,7 +30,7 @@ arcs = {
     "SOURCES": Arc("SOURCES", "téléski"),
     "ROCHER DE L'OMBRE": Arc("ROCHER DE L'OMBRE", "téléski"),
     "PRAZ JUGET": Arc("PRAZ JUGET", "téléski"),
-    "BOUT BLANC": Arc("BOUT BLANC", "téléski"),
+    "BOUC BLANC": Arc("BOUC BLANC", "téléski"),
     "GROS MURGER": Arc("GROS MURGER", "téléski"),
     "LOZE": Arc("LOZE", "téléski"),
     "STADE": Arc("STADE", "téléski"),
@@ -50,7 +50,7 @@ arcs = {
     "SUISSES": Arc("SUISSES", "télésiège"),
     "BIOLLAY": Arc("BIOLLAY", "télésiège"),
     "PRALONG": Arc("PRALONG", "télésiège"),
-    "COOS": Arc("COOS", "télésiège"),
+    "COQS": Arc("COQS", "télésiège"),
     "COL DE LA LOZE": Arc("COL DE LA LOZE", "télésiège"),
     "DOU DES LANCHES": Arc("DOU DES LANCHES", "télésiège"),
     "CRÊTES": Arc("CRÊTES", "télésiège"),
@@ -231,8 +231,101 @@ sommets = [
         [arcs["Biollay"], arcs["Altiport"]],
         [arcs["PRALONG"]], # ajouter ALTIPORT
         "PRALONG"
+    ),
+    Sommet(
+        [arcs["COQS"], arcs["CHENUS"], arcs["CRÊTES"], arcs["PRAZ JUGET"], arcs["Col de la Loze"]],
+        [arcs["Crêtes"], arcs["Lanches"], arcs["Chenus"], arcs["Anémones"], arcs["COL DE LA LOZE"], arcs["Lac Bleu"]],
+        "CHENUS"
+    ),
+    Sommet(
+        [arcs["COL DE LA LOZE"], arcs["DOU DES LANCHES"]],
+        [arcs["Col de la Loze"], arcs["Dou des Lanches"]],
+        "COL DE LA LOZE"
+    ),
+    Sommet(
+        [arcs["Crêtes"], arcs["LOZE"], arcs["PLANTREY"], arcs["BOUC BLANC"]],
+        [arcs["Crêtes"], arcs["Loze Est"], arcs["Loze"], arcs["Dou du Midi"], arcs["Petit Dou"], arcs["Jean Blanc"], arcs["Bouc Blanc"], arcs["Déviation 1550"]],
+        "LOZE"
+    ),
+    Sommet(
+        [arcs["Crêtes"], arcs["FORET"]],
+        [arcs["CRÊTES"], arcs["Arolles"]]
+    ),
+    Sommet(
+        [arcs["Dou des Lanches"], arcs["Bouc Blanc"], arcs["Arolles"], arcs["LA TANIA"]],
+        [arcs["DOU DES LANCHES"], arcs["PRAZ JUGET"], arcs["Arolles"], arcs["Bouc Blanc"], arcs["Plan Fontaine"], arcs["Jockeys"], arcs["Murettes"]],
+        "PRAZ JUGET"
+    ),
+    Sommet(
+        [arcs["Arolles"], arcs["Bouc Blanc"], arcs["Plan Fontaine"], arcs["GROS MURGER"]],
+        [arcs["BOUC BLANC"], arcs["Plan Fontaine"], arcs["Moretta Blanche"], arcs["Folyères"]]
+    ),
+    Sommet(
+        [arcs["Folyères"], arcs["Plan Fontaine"], arcs["Moretta Blanche"]],
+        [arcs["GROS MURGER"], arcs["LA TANIA"]],
+        "LA TANIA"
+    ),
+    Sommet(
+        [arcs["Brigues"], arcs["Amoureux"], arcs["Jockeys"], arcs["Murettes"], arcs["Jean Blanc"]],
+        [arcs["Saint Bon"], arcs["PRAZ"], arcs["FORET"]],
+        "COURCHEVEL - LE PRAZ - 1300m"
+    ),
+    Sommet(
+        [arcs["Saint Bon"]],
+        [],
+        "ST BON - 1100m"
+    ),
+    Sommet(
+        [arcs["Déviation 1550"], arcs["Dou du Midi"], arcs["Stade"], arcs["Provères"], arcs["Tovets"]],
+        [arcs["TOVETS"], arcs["GRANGETTES"]],
+        "COURCHEVEL - 1550m"
+    ),
+    Sommet(
+        [arcs["Verdons"], arcs["Anémones"], arcs["Jantzen"], arcs["Loze"], arcs["GRANGETTES"], arcs["TOVETS"], arcs["Petit Dou"]],
+        # On considère que seul Verdons relie Lac à ce sommet
+        [arcs["JARDIN ALPIN"], arcs["VERDONS"], arcs["LOZE"], arcs["CHENUS"], arcs["Stade"], arcs["Tovets"], arcs["Provères"], arcs["Brigues"], arcs["Amoureux"]]
+    ),
+    Sommet(
+        [arcs["Marquetty"], arcs["Renard"], arcs["Verdons"], arcs["Stade Descente"], arcs["Loze Est"], arcs["Lac Bleu"], arcs["Chenus"]],
+        [arcs["BIOLLAY"], arcs["SOURCES"], arcs["ROCHER DE L'OMBRE"], arcs["COQS"], arcs["Verdons"]],
+        "LAC"
+    ),
+    Sommet(
+        [arcs["Piste Bleue"], arcs["Marquis"], arcs["Indiens"], arcs["Belvédère"]],
+        [arcs["3 VALLÉES"], arcs["MARQUIS"], arcs["STE AGATHE"], arcs["ARIONDAZ"]],
+        "COURCHEVEL - 1650m"
+    ),
+    Sommet(
+        [arcs["Stade"], arcs["Granges"], arcs["Carabosse"], arcs["Praline"]],
+        [arcs["STADE"], arcs["GRANGES"], arcs["Belvédère"]]
+    ),
+    Sommet(
+        [arcs["Chapelets"], arcs["Rochers"], arcs["Bel Air"], arcs["Praline"]],
+        [arcs["Praline"], arcs["CHAPELETS"]]
+    ),
+    Sommet(
+        [arcs["CHAPELETS"], arcs["SIGNAL"]],
+        [arcs["Chapelets"], arcs["Rochers"], arcs["Grandes Bosses"]],
+        "SIGNAL"
+    ),
+    Sommet(
+        [arcs["Rochers"], arcs["ARIONDAZ"]],
+        [arcs["COMBE"], arcs["Rochers"], arcs["Bel Air"], arcs["Ariondaz"]],
+        "BEL AIR"
+    ),
+    Sommet(
+        [arcs["Ariondaz"], arcs["GRANGES"], arcs["MARQUIS"], arcs["3 VALLÉES"]],
+        [arcs["SIGNAL"], arcs["Granges"], arcs["Carabosse"], arcs["Praline"], arcs["PTE BOSSE"], arcs["Indiens"], arcs["Piste Bleue"], arcs["Marquis"]],
+        "BOSSES"
+    ),
+    Sommet(
+        [arcs["PTE BOSSE"]],
+        [arcs["Gravelles"]]
+    ),
+    Sommet(
+        [arcs["STADE"]],
+        [arcs["Stade"]]
     )
-
 ]
 
 # Exemple
