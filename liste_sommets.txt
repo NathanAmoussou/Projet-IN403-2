@@ -1,0 +1,38 @@
+{'entrant': ['CHANROSSA', 'ROC MERLET'], 'sortant': ['Chanrossa', 'Jean Pachod', 'Roc Merlet'], 'nom': 'CHANROSSA'}
+{'entrant': ['Creux', 'Jean Pachod', 'Chanrossa', 'Rama'], 'sortant': ['CHANROSSA', 'MARMOTTES', 'Creux'], 'nom': 'CREUX'}
+{'entrant': ['Roc Mugnier', 'Creux', 'Gravelles', 'Cave des Creux', 'Mur', 'Prameruel'], 'sortant': ['ROC MUGNIER', 'AIGUILLE DU FRUIT', 'GRAVELLES'], 'nom': 'PRAMEUEL'}
+{'entrant': ['ROC MUGNIER', 'COMBE', 'Pyramide', 'Mont Russes', 'Plan Mugnier', 'Grandes Bosses'], 'sortant': ['Roc Mugnier', 'PYRAMIDE', 'Grandes Bosses'], }
+{'entrant': ['PYRAMIDE', 'Roc Merlet'], 'sortant': ['Plan Mugnier', 'Mont Russes', 'Pyramide', 'ROC MERLET'], }
+{'entrant': ['CREUX NOIRS'], 'sortant': ['Roches Grises'], 'nom': 'CREUX NOIRS'}
+{'entrant': ['SAULIRE'], 'sortant': ['Grand Couloir', 'Creux', 'Combe Saulire'], 'nom': 'SAULIRE'}
+{'entrant': ['MARMOTTES', 'SUISSES', 'VIZELLE', 'Combe Saulire'], 'sortant': ['Combe Saulire', 'Combe Pylones', 'm', 'Turcs', 'Suisses'], 'nom': 'VIZELLE'}
+{'entrant': ['Combe Pylones', 'Combe Saulire', 'Grand Couloir', 'Biollay Verdons', 'm', 'VERDONS', 'SOURCES'], 'sortant': ['VIZELLE', 'SAULIRE', 'Verdons', 'Renard', 'Biollay Verdons'], 'nom': 'VERDONS'}
+{'entrant': ['Combe Saulire', 'Grand Couloir', "ROCHER DE L'OMBRE"], 'sortant': ['Stade Descente', 'Combe Saulire'], }
+{'entrant': ['Lac Creux'], 'sortant': ['Lac Creux', 'CREUX NOIRS'], }
+{'entrant': ['Turcs', 'AIGUILLE DU FRUIT'], 'sortant': ['Turcs', 'Park City'], }
+{'entrant': ['GRAVELLES', 'Lac Creux', 'Park City'], 'sortant': ['Cave des Creux', 'Altiport'], }
+{'entrant': ['Turcs', 'Suisses', 'Altiport', 'Super Pralong'], 'sortant': ['SUISSES', 'Mur', 'Altiport'], }
+{'entrant': ['PRALONG'], 'sortant': ['Super Pralong', 'Pralong', 'Biollay Verdons', 'Marquetty', 'Biollay'], }
+{'entrant': ['Pralong', 'Altiport'], 'sortant': ['Prameruel', 'Pralong', 'Altiport'], }
+{'entrant': ['JARDIN ALPIN', 'Biollay Verdons'], 'sortant': [], }
+{'entrant': ['Biollay', 'Altiport'], 'sortant': ['PRALONG'], 'nom': 'PRALONG'}
+{'entrant': ['COQS', 'CHENUS', 'CRETES', 'PRAZ JUGET', 'Col de la Loze'], 'sortant': ['Cretes', 'Lanches', 'Chenus', 'Anemones', 'COL DE LA LOZE', 'Lac Bleu'], 'nom': 'CHENUS'}
+{'entrant': ['COL DE LA LOZE', 'DOU DES LANCHES'], 'sortant': ['Col de la Loze', 'Dou des Lanches'], 'nom': 'COL DE LA LOZE'}
+{'entrant': ['Cretes', 'LOZE', 'PLANTREY', 'BOUC BLANC'], 'sortant': ['Cretes', 'Loze Est', 'Loze', 'Dou du Midi', 'Petit Dou', 'Jean Blanc', 'Bouc Blanc', 'Deviation 1550'], 'nom': 'LOZE'}
+{'entrant': ['Cretes', 'FORET'], 'sortant': ['CRETES', 'Arolles'], }
+{'entrant': ['Dou des Lanches', 'Bouc Blanc', 'Arolles', 'LA TANIA'], 'sortant': ['DOU DES LANCHES', 'PRAZ JUGET', 'Arolles', 'Bouc Blanc', 'Plan Fontaine', 'Jockeys', 'Murettes'], 'nom': 'PRAZ JUGET'}
+{'entrant': ['Arolles', 'Bouc Blanc', 'Plan Fontaine', 'GROS MURGER'], 'sortant': ['BOUC BLANC', 'Plan Fontaine', 'Moretta Blanche', 'Folyeres'], }
+{'entrant': ['Folyeres', 'Plan Fontaine', 'Moretta Blanche'], 'sortant': ['GROS MURGER', 'LA TANIA'], 'nom': 'LA TANIA'}
+{'entrant': ['Brigues', 'Amoureux', 'Jockeys', 'Murettes', 'Jean Blanc'], 'sortant': ['Saint Bon', 'PRAZ', 'FORET'], 'nom': 'COURCHEVEL - LE PRAZ - 1300m'}
+{'entrant': ['Saint Bon'], 'sortant': [], 'nom': 'ST BON - 1100m'}
+{'entrant': ['Deviation 1550', 'Dou du Midi', 'Stade', 'Proveres', 'Tovets'], 'sortant': ['TOVETS', 'GRANGETTES'], 'nom': 'COURCHEVEL - 1550m'}
+{'entrant': ['Verdons', 'Anemones', 'Jantzen', 'Loze', 'GRANGETTES', 'TOVETS', 'Petit Dou'], 'sortant': ['JARDIN ALPIN', 'VERDONS', 'LOZE', 'CHENUS', 'Stade', 'Tovets', 'Proveres', 'Brigues', 'Amoureux'], }
+{'entrant': ['Marquetty', 'Renard', 'Verdons', 'Stade Descente', 'Loze Est', 'Lac Bleu', 'Chenus'], 'sortant': ['BIOLLAY', 'SOURCES', "ROCHER DE L'OMBRE", 'COQS', 'Verdons'], 'nom': 'LAC'}
+{'entrant': ['Piste Bleue', 'Marquis', 'Indiens', 'Belvedere'], 'sortant': ['3 VALLEES', 'MARQUIS', 'STE AGATHE', 'ARIONDAZ'], 'nom': 'COURCHEVEL - 1650m'}
+{'entrant': ['Stade', 'Granges', 'Carabosse', 'Praline'], 'sortant': ['STADE', 'GRANGES', 'Belvedere'], }
+{'entrant': ['Chapelets', 'Rochers', 'Bel Air', 'Praline'], 'sortant': ['Praline', 'CHAPELETS'], }
+{'entrant': ['CHAPELETS', 'SIGNAL'], 'sortant': ['Chapelets', 'Rochers', 'Grandes Bosses'], 'nom': 'SIGNAL'}
+{'entrant': ['Rochers', 'ARIONDAZ'], 'sortant': ['COMBE', 'Rochers', 'Bel Air', 'Ariondaz'], 'nom': 'BEL AIR'}
+{'entrant': ['Ariondaz', 'GRANGES', 'MARQUIS', '3 VALLEES'], 'sortant': ['SIGNAL', 'Granges', 'Carabosse', 'Praline', 'PTE BOSSE', 'Indiens', 'Piste Bleue', 'Marquis'], 'nom': 'BOSSES'}
+{'entrant': ['PTE BOSSE'], 'sortant': ['Gravelles'], }
+{'entrant': ['STADE'], 'sortant': ['Stade'], }

@@ -1,0 +1,16 @@
+if nature == "téléski":
+    pass
+elif nature == "télésiège":
+    pass
+elif nature == "télécabine":
+    pass
+elif nature == "téléphérique":
+    pass
+elif nature == "piste verte":
+    pass
+elif nature == "piste bleue":
+    pass
+elif nature == "piste rouge":
+    pass
+elif nature == "piste noire":
+    pass

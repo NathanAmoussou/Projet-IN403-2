@@ -1,3 +1,5 @@
+from unidecode import unidecode
+
 # Partie 1 : Structure de données
 
 class Sommet():
@@ -17,17 +19,29 @@ class Arc():
     Crée un arc avec son nom, sa nature et sa durée (optionnel)
     :param nom: nom de l'arc
     :param nature: nature de l'arc (téléski, télésiège, télécabine, téléphérique, piste verte, piste bleue, piste rouge, piste noire)
-    :param duree: durée de l'arc (en minutes)
+    :param duree_1: temps de parcours de la remontée ou de la piste pour un débutant (optionnel)
+    :param duree_2: temps de parcours de la piste pour un fonceur (optionnel)
     """
-    def __init__(self, nom: str, nature: str, duree: float=0):
+    
+    echelle = 3.059e-3 # échelle de la carte
+    attente_remontees = 10
+    v_remontees = {"téléski": 12.5, "télésiège": 15, "télécabine": 22.5, "téléphérique": 30}
+    v_pistes = {"piste verte": [20, 20], "piste bleue": [17.5, 35], "piste rouge": [15, 45], "piste noire": [12.5, 50]} # [vitesse débutant, vitesse fonceur]
+
+    def __init__(self, nom: str, nature: str, duree_1: float=0, duree_2: float=0):
         self.nature = nature
         self.nom = nom
-        self.duree = duree
+        if self.nature == ("téléski" or "télésiège" or "télécabine" or "téléphérique"):
+            self.duree = (duree_1 / self.echelle) / (self.v_remontees[self.nature] / 3.6) / 60 + self.attente_remontees
+        elif self.nature == ("piste verte" or "piste bleue" or "piste rouge" or "piste noire"):
+            self.duree_1 = (duree_1 / self.echelle) / (self.v_pistes[self.nature][0] / 3.6) # durée pour un débutant
+            self.duree_2 = (duree_2 / self.echelle) / (self.v_pistes[self.nature][1] / 3.6) # durée pour un fonceur
+
 
 arcs = {
     # Téléskis
-    "PYRAMIDE": Arc("PYRAMIDE", "téléski"),
-    "SOURCES": Arc("SOURCES", "téléski"),
+    "PYRAMIDE": Arc("PYRAMIDE", "téléski", 3.2),
+    "SOURCES": Arc("SOURCES", "téléski", ),
     "ROCHER DE L'OMBRE": Arc("ROCHER DE L'OMBRE", "téléski"),
     "PRAZ JUGET": Arc("PRAZ JUGET", "téléski"),
     "BOUC BLANC": Arc("BOUC BLANC", "téléski"),
@@ -42,8 +56,8 @@ arcs = {
     "COMBE": Arc("COMBE", "téléski"),
     "PTE BOSSE": Arc("PTE BOSSE", "téléski"),
     # Télésièges
-    "CHANROSSA": Arc("CHANROSSA", "télésiège"),
-    "ROC MERLET": Arc("ROC MERLET", "télésiège"),
+    "CHANROSSA": Arc("CHANROSSA", "télésiège", 4.3),
+    "ROC MERLET": Arc("ROC MERLET", "télésiège", 1.6),
     "ROC MUGNIER": Arc("ROC MUGNIER", "télésiège"),
     "CREUX NOIRS": Arc("CREUX NOIRS", "télésiège"),
     "MARMOTTES": Arc("MARMOTTES", "télésiège"),
@@ -150,6 +164,8 @@ arcs = {
     "Jockeys": Arc("Jockeys", "piste noire"),
     "Jean Blanc": Arc("Jean Blanc", "piste noire"),
 }
+
+print(arcs["PYRAMIDE"].duree)
 
 sommets = [
     Sommet(
@@ -349,4 +365,37 @@ def afficher_sommets_adjacents():
     print(sommet_localisation)
     print(sommets[0])
 
-afficher_sommets_adjacents()
+#afficher_sommets_adjacents()
+
+def ecrire_arcs(arcs, nom_fichier):
+    """
+    Écrit les arcs dans un fichier texte.
+    :arcs: liste d'arcs
+    :nom_fichier: nom du fichier dans lequel écrire
+    :return: None
+    """
+    with open(nom_fichier, 'w') as f:
+        for arc in arcs.values():
+            nom_sans_accents = unidecode(arc.nom)
+            nature_sans_accents = unidecode(arc.nature)
+            f.write(f"{{'nom': '{nom_sans_accents}', 'nature': '{nature_sans_accents}'}}\n")
+
+def ecrire_sommets(sommets, nom_fichier):
+    """
+    Écrit les sommets dans un fichier texte.
+    :sommets: liste de sommets
+    :nom_fichier: nom du fichier dans lequel écrire
+    :return: None
+    """
+    with open(nom_fichier, 'w') as f:
+        for sommet in sommets:
+            entrant = [unidecode(arc.nom) for arc in sommet.entrant]
+            sortant = [unidecode(arc.nom) for arc in sommet.sortant]
+            nom = unidecode(sommet.nom) if sommet.nom else ""
+            entrant_str = str(entrant)
+            sortant_str = str(sortant)
+            nom_str = f"'nom': '{nom}'" if nom else ""
+            f.write(f"{{'entrant': {entrant_str}, 'sortant': {sortant_str}, {nom_str}}}\n")
+
+#ecrire_arcs(arcs, "liste_pistes.txt")
+#ecrire_sommets(sommets, "liste_sommets.txt")
