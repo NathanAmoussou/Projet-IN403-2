@@ -34,8 +34,8 @@ class Arc():
         if self.nature == ("téléski" or "télésiège" or "télécabine" or "téléphérique"):
             self.duree = (duree_1 / self.echelle) / (self.v_remontees[self.nature] / 3.6) / 60 + self.attente_remontees
         elif self.nature == ("piste verte" or "piste bleue" or "piste rouge" or "piste noire"):
-            self.duree_1 = (duree_1 / self.echelle) / (self.v_pistes[self.nature][0] / 3.6) # durée pour un débutant
-            self.duree_2 = (duree_2 / self.echelle) / (self.v_pistes[self.nature][1] / 3.6) # durée pour un fonceur
+            self.duree_1 = (duree_1 / self.echelle) / (self.v_pistes[self.nature][0] / 3.6) / 60 # durée pour un débutant
+            self.duree_2 = (duree_2 / self.echelle) / (self.v_pistes[self.nature][1] / 3.6) / 60 # durée pour un fonceur
 
 
 arcs = {
@@ -47,36 +47,36 @@ arcs = {
     "BOUC BLANC": Arc("BOUC BLANC", "téléski"),
     "GROS MURGER": Arc("GROS MURGER", "téléski"),
     "LOZE": Arc("LOZE", "téléski"),
-    "STADE": Arc("STADE", "téléski"),
+    "STADE": Arc("STADE", "téléski", 1.1),
     "EPICEA": Arc("EPICEA", "téléski"),
-    "MARQUIS": Arc("MARQUIS", "téléski"),
-    "STE AGATHE": Arc("STE AGATHE", "téléski"),
+    "MARQUIS": Arc("MARQUIS", "téléski", 4),
+    "STE AGATHE": Arc("STE AGATHE", "téléski", 1.5),
     "STADE": Arc("STADE", "téléski"),
-    "GRANGES": Arc("GRANGES", "téléski"),
-    "COMBE": Arc("COMBE", "téléski"),
-    "PTE BOSSE": Arc("PTE BOSSE", "téléski"),
+    "GRANGES": Arc("GRANGES", "téléski", 1.5),
+    "COMBE": Arc("COMBE", "téléski", 1.7),
+    "PTE BOSSE": Arc("PTE BOSSE", "téléski", 0.9),
     # Télésièges
     "CHANROSSA": Arc("CHANROSSA", "télésiège", 4.3),
     "ROC MERLET": Arc("ROC MERLET", "télésiège", 1.6),
-    "ROC MUGNIER": Arc("ROC MUGNIER", "télésiège"),
-    "CREUX NOIRS": Arc("CREUX NOIRS", "télésiège"),
-    "MARMOTTES": Arc("MARMOTTES", "télésiège"),
-    "SUISSES": Arc("SUISSES", "télésiège"),
-    "BIOLLAY": Arc("BIOLLAY", "télésiège"),
-    "PRALONG": Arc("PRALONG", "télésiège"),
+    "ROC MUGNIER": Arc("ROC MUGNIER", "télésiège", 3.6),
+    "CREUX NOIRS": Arc("CREUX NOIRS", "télésiège", 3.6),
+    "MARMOTTES": Arc("MARMOTTES", "télésiège", 4.9),
+    "SUISSES": Arc("SUISSES", "télésiège", 4.3),
+    "BIOLLAY": Arc("BIOLLAY", "télésiège", 3.3),
+    "PRALONG": Arc("PRALONG", "télésiège", 3.1),
     "COQS": Arc("COQS", "télésiège"),
     "COL DE LA LOZE": Arc("COL DE LA LOZE", "télésiège"),
     "DOU DES LANCHES": Arc("DOU DES LANCHES", "télésiège"),
     "CRÊTES": Arc("CRÊTES", "télésiège"),
     "PLANTREY": Arc("PLANTREY", "télésiège"),
     "TOVETS": Arc("TOVETS", "télésiège"),
-    "3 VALLÉES": Arc("3 VALLÉES", "télésiège"),
-    "CHAPELETS": Arc("CHAPELETS", "télésiège"), 
-    "SIGNAL": Arc("SIGNAL", "télésiège"),
-    "GRAVELLES": Arc("GRAVELLES", "télésiège"),
-    "AIGUILLE DU FRUIT": Arc("AIGUILLE DU FRUIT", "télésiège"),
+    "3 VALLÉES": Arc("3 VALLÉES", "télésiège", 4.3),
+    "CHAPELETS": Arc("CHAPELETS", "télésiège", 3.5), 
+    "SIGNAL": Arc("SIGNAL", "télésiège", 4.5),
+    "GRAVELLES": Arc("GRAVELLES", "télésiège", 2.2),
+    "AIGUILLE DU FRUIT": Arc("AIGUILLE DU FRUIT", "télésiège", 4.6),
     # Télécabines
-    "VIZELLE": Arc("VIZELLE", "télécabine"),
+    "VIZELLE": Arc("VIZELLE", "télécabine", 3.8),
     "JARDIN ALPIN": Arc("JARDIN ALPIN", "télécabine"),
     "LA TANIA": Arc("LA TANIA", "télécabine"),
     "FORET": Arc("FORET", "télécabine"),
@@ -84,60 +84,75 @@ arcs = {
     "CHENUS": Arc("CHENUS", "télécabine"),
     "VERDONS": Arc("VERDONS", "télécabine"),
     "GRANGETTES": Arc("GRANGETTES", "télécabine"),
-    "ARIONDAZ": Arc("ARIONDAZ", "télécabine"),
+    "ARIONDAZ": Arc("ARIONDAZ", "télécabine", 5.6),
     # Téléphériques
-    "SAULIRE": Arc("SAULIRE", "téléphérique"),
+    "SAULIRE": Arc("SAULIRE", "téléphérique", 4.1),
     # Pistes vertes
     "Renard": Arc("Renard", "piste verte"),
-    "Verdons": Arc("Verdons", "piste verte"),
+    "Verdons A": Arc("Verdons A", "piste verte"),
+    "Verdons B": Arc("Verdons B", "piste verte"),
     "Lac Bleu": Arc("Lac Bleu", "piste verte"),
     "Loze Est": Arc("Loze Est", "piste verte"),
-    "Plan Fontaine": Arc("Plan Fontaine", "piste verte"),
-    "Belvédère": Arc("Belvédère", "piste verte"),
-    "Praline": Arc("Praline", "piste verte"),
+    "Plan Fontaine A": Arc("Plan Fontaine A", "piste verte"),
+    "Plan Fontaine B": Arc("Plan Fontaine B", "piste verte"),
+    "Belvédère": Arc("Belvédère", "piste verte", 3.2),
+    "Praline A": Arc("Praline A", "piste verte", 3),
+    "Praline B": Arc("Praline B", "piste verte", 2.5),
     # Pistes bleues
-    "Plan Mugnier": Arc("Plan Mugnier", "piste bleue"),
-    "Mont Russes": Arc("Mont Russes", "piste bleue"),
-    "Pyramide": Arc("Pyramide", "piste bleue"),
-    "Altiport": Arc("Altiport", "piste bleue"),
-    "Super Pralong": Arc("Super Pralong", "piste bleue"),
-    "Pralong": Arc("Pralong", "piste bleue"),
-    "Biollay Verdons": Arc("Biollay Verdons", "piste bleue"),
-    "Biollay": Arc("Biollay", "piste bleue"),
+    "Plan Mugnier": Arc("Plan Mugnier", "piste bleue", 3.2),
+    "Mont Russes": Arc("Mont Russes", "piste bleue", 3.2),
+    "Pyramide": Arc("Pyramide", "piste bleue", 3.2),
+    "Altiport A": Arc("Altiport A", "piste bleue", 0.7),
+    "Altiport B": Arc("Altiport B", "piste bleue", 2.4),
+    "Altiport C": Arc("Altiport C", "piste bleue", 1.2),
+    "Super Pralong": Arc("Super Pralong", "piste bleue", 1.8),
+    "Pralong A": Arc("Pralong A", "piste bleue", 1.7),
+    "Pralong B": Arc("Pralong B", "piste bleue", 1.8),
+    "Biollay Verdons A": Arc("Biollay Verdons A", "piste bleue", 1.8),
+    "Biollay Verdons B": Arc("Biollay Verdons B", "piste bleue", 1.7),
+    "Biollay": Arc("Biollay", "piste bleue", 3.2),
     "Anémones": Arc("Anémones", "piste bleue"),
     "Col de la Loze": Arc("Col de la Loze", "piste bleue"),
     "Folyères": Arc("Folyères", "piste bleue"),
-    "Arolles": Arc("Arolles", "piste bleue"),
-    "Crêtes": Arc("Crêtes", "piste bleue"),
+    "Arolles A": Arc("Arolles A", "piste bleue"),
+    "Arolles B": Arc("Arolles B", "piste bleue"),
+    "Crêtes A": Arc("Crêtes A", "piste bleue"),
+    "Crêtes B": Arc("Crêtes B", "piste bleue"),
     "Stade": Arc("Stade", "piste bleue"),
     "Tovets": Arc("Tovets", "piste bleue"),
     "Provères": Arc("Provères", "piste bleue"),
     "Cospillot": Arc("Cospillot", "piste bleue"),
-    "Piste Bleue": Arc("Piste Bleue", "piste bleue"),
-    "Marquis": Arc("Marquis", "piste bleue"),
-    "Granges": Arc("Granges", "piste bleue"),
-    "Carabosse": Arc("Carabosse", "piste bleue"),
-    "Grandes Bosses": Arc("Grandes Bosses", "piste bleue"),
-    "Ariondaz": Arc("Ariondaz", "piste bleue"),
-    "Indiens": Arc("Indiens", "piste bleue"),
-    "Gravelles": Arc("Gravelles", "piste bleue"),
-    "Prameruel": Arc("Prameruel", "piste bleue"),
+    "Piste Bleue": Arc("Piste Bleue", "piste bleue", 4.1),
+    "Marquis": Arc("Marquis", "piste bleue", 4.1),
+    "Granges": Arc("Granges", "piste bleue", 1.5),
+    "Carabosse": Arc("Carabosse", "piste bleue", 1.2),
+    "Grandes Bosses A": Arc("Grandes Bosses A", "piste bleue", 1.8),
+    "Grandes Bosses B": Arc("Grandes Bosses B", "piste bleue", 3),
+    "Ariondaz": Arc("Ariondaz", "piste bleue", 1.7),
+    "Indiens": Arc("Indiens", "piste bleue", 4.1),
+    "Gravelles": Arc("Gravelles", "piste bleue", 0.6),
+    "Prameruel": Arc("Prameruel", "piste bleue", 3.1),
     # Pistes rouges
-    "Jean Pachod": Arc("Jean Pachod", "piste rouge"),
-    "Roc Merlet": Arc("Roc Merlet", "piste rouge"),
-    "Creux": Arc("Creux", "piste rouge"),
-    "Roc Mugnier": Arc("Roc Mugnier", "piste rouge"),
-    "Lac Creux": Arc("Lac Creux", "piste rouge"),
-    "Roches Grises": Arc("Roches Grises", "piste rouge"),
-    "Combe Saulire": Arc("Combe Saulire", "piste rouge"),
-    "Park City": Arc("Park City", "piste rouge"),
-    "Rama": Arc("Rama", "piste rouge"),
+    "Jean Pachod": Arc("Jean Pachod", "piste rouge", 4.4),
+    "Roc Merlet": Arc("Roc Merlet", "piste rouge", 1.7),
+    "Creux A": Arc("Creux A", "piste rouge", 6.2),
+    "Creux B": Arc("Creux B", "piste rouge", 2.7),
+    "Roc Mugnier": Arc("Roc Mugnier", "piste rouge", 3.6),
+    "Lac Creux A": Arc("Lac Creux A", "piste rouge", 3.5),
+    "Lac Creux B": Arc("Lac Creux B", "piste rouge", 2.6),
+    "Roches Grises": Arc("Roches Grises", "piste rouge", 3.6),
+    "Combe Saulire A": Arc("Combe Saulire A", "piste rouge", 1.3),
+    "Combe Saulire B": Arc("Combe Saulire B", "piste rouge", 3.2),
+    "Combe Saulire C": Arc("Combe Saulire C", "piste rouge", 1.2),
+    "Park City": Arc("Park City", "piste rouge", 2.3),
+    "Rama": Arc("Rama", "piste rouge", 1.5),
     "Stade Descente": Arc("Stade Descente", "piste rouge"),
-    "Marquetty": Arc("Marquetty", "piste rouge"),
-    "Cave des Creux": Arc("Cave des Creux", "piste rouge"),
-    "Mur": Arc("Mur", "piste rouge"),
+    "Marquetty": Arc("Marquetty", "piste rouge", 3.4),
+    "Cave des Creux": Arc("Cave des Creux", "piste rouge", 2.2),
+    "Mur": Arc("Mur", "piste rouge", 2.8),
     "Lanches": Arc("Lanches", "piste rouge"),
-    "Bouc Blanc": Arc("Bouc Blanc", "piste rouge"),
+    "Bouc Blanc A": Arc("Bouc Blanc A", "piste rouge"),
+    "Bouc Blanc B": Arc("Bouc Blanc B", "piste rouge"),
     "Moretta Blanche": Arc("Moretta Blanche", "piste rouge"),
     "Murettes": Arc("Murettes", "piste rouge"),
     "Amoureux": Arc("Amoureux", "piste rouge"),
@@ -149,17 +164,19 @@ arcs = {
     "Jantzen": Arc("Jantzen", "piste rouge"),
     "Chenus": Arc("Chenus", "piste rouge"),
     "Déviation 1550": Arc("Déviation 1550", "piste rouge"),
-    "Stade": Arc("Stade", "piste rouge"),
-    "Bel Air": Arc("Bel Air", "piste rouge"),
-    "Rochers": Arc("Rochers", "piste rouge"),
-    "Chapelets": Arc("Chapelets", "piste rouge"),
+    "Stade": Arc("Stade", "piste rouge", 1.1),
+    "Bel Air": Arc("Bel Air", "piste rouge", 2.1),
+    "Rochers A": Arc("Rochers A", "piste rouge", 2.8),
+    "Rochers B": Arc("Rochers B", "piste rouge", 2.1),
+    "Chapelets": Arc("Chapelets", "piste rouge", 3.5),
     # Pistes noires
-    "Chanrossa": Arc("Chanrossa", "piste noire"),
-    "Turcs": Arc("Turcs", "piste noire"),
-    "Suisses": Arc("Suisses", "piste noire"),
-    "Combe Pylones": Arc("Combe Pylones", "piste noire"),
-    "Grand Couloir": Arc("Grand Couloir", "piste noire"),
-    "m": Arc("m", "piste noire"),
+    "Chanrossa": Arc("Chanrossa", "piste noire", 4.45),
+    "Turcs A": Arc("Turcs A", "piste noire", 2.3),
+    "Turcs B": Arc("Turcs B", "piste noire", 2.3),
+    "Suisses": Arc("Suisses", "piste noire", 4.6),
+    "Combe Pylones": Arc("Combe Pylones", "piste noire", 3.2),
+    "Grand Couloir": Arc("Grand Couloir", "piste noire", 3.2),
+    "m": Arc("m", "piste noire", 4),
     "Dou des Lanches": Arc("Dou des Lanches", "piste noire"),
     "Jockeys": Arc("Jockeys", "piste noire"),
     "Jean Blanc": Arc("Jean Blanc", "piste noire"),
@@ -174,18 +191,18 @@ sommets = [
         "CHANROSSA"
     ),
     Sommet(
-        [arcs["Creux"], arcs["Jean Pachod"], arcs["Chanrossa"], arcs["Rama"]],
-        [arcs["CHANROSSA"], arcs["MARMOTTES"], arcs["Creux"]],
+        [arcs["Creux A"], arcs["Jean Pachod"], arcs["Chanrossa"], arcs["Rama"]],
+        [arcs["CHANROSSA"], arcs["MARMOTTES"], arcs["Creux B"]],
         "CREUX"
     ),
     Sommet(
-        [arcs["Roc Mugnier"], arcs["Creux"], arcs["Gravelles"], arcs["Cave des Creux"], arcs["Mur"], arcs["Prameruel"]],
+        [arcs["Roc Mugnier"], arcs["Creux B"], arcs["Gravelles"], arcs["Cave des Creux"], arcs["Mur"], arcs["Prameruel"]],
         [arcs["ROC MUGNIER"], arcs["AIGUILLE DU FRUIT"], arcs["GRAVELLES"]],
         "PRAMEUEL"
     ),
     Sommet(
-        [arcs["ROC MUGNIER"], arcs["COMBE"], arcs["Pyramide"], arcs["Mont Russes"], arcs["Plan Mugnier"], arcs["Grandes Bosses"]],
-        [arcs["Roc Mugnier"], arcs["PYRAMIDE"], arcs["Grandes Bosses"]]
+        [arcs["ROC MUGNIER"], arcs["COMBE"], arcs["Pyramide"], arcs["Mont Russes"], arcs["Plan Mugnier"], arcs["Grandes Bosses A"]],
+        [arcs["Roc Mugnier"], arcs["PYRAMIDE"], arcs["Grandes Bosses B"]]
     ),
     Sommet(
         [arcs["PYRAMIDE"], arcs["Roc Merlet"]],
@@ -198,59 +215,59 @@ sommets = [
     ),
     Sommet(
         [arcs["SAULIRE"]],
-        [arcs["Grand Couloir"], arcs["Creux"], arcs["Combe Saulire"]],
+        [arcs["Grand Couloir"], arcs["Creux A"], arcs["Combe Saulire A"], arcs["Lac Creux A"]],
         "SAULIRE"
     ),
     Sommet(
-        [arcs["MARMOTTES"], arcs["SUISSES"], arcs["VIZELLE"], arcs["Combe Saulire"]],
-        [arcs["Combe Saulire"], arcs["Combe Pylones"], arcs["m"], arcs["Turcs"], arcs["Suisses"]],
+        [arcs["MARMOTTES"], arcs["SUISSES"], arcs["VIZELLE"], arcs["Combe Saulire B"]],
+        [arcs["Combe Saulire B"], arcs["Combe Pylones"], arcs["m"], arcs["Turcs A"], arcs["Suisses"]],
         "VIZELLE"
     ),
     Sommet(
-        [arcs["Combe Pylones"], arcs["Combe Saulire"], arcs["Grand Couloir"], arcs["Biollay Verdons"], arcs["m"], arcs["VERDONS"], arcs["SOURCES"]],
-        [arcs["VIZELLE"], arcs["SAULIRE"], arcs["Verdons"], arcs["Renard"], arcs["Biollay Verdons"]],
+        [arcs["Combe Pylones"], arcs["Combe Saulire C"], arcs["Grand Couloir"], arcs["Biollay Verdons A"], arcs["m"], arcs["VERDONS"], arcs["SOURCES"]],
+        [arcs["VIZELLE"], arcs["SAULIRE"], arcs["Verdons A"], arcs["Renard"], arcs["Biollay Verdons B"]],
         "VERDONS"
     ),
     Sommet(
-        [arcs["Combe Saulire"], arcs["Grand Couloir"], arcs["ROCHER DE L'OMBRE"]],
-        [arcs["Stade Descente"], arcs["Combe Saulire"]]
+        [arcs["Combe Saulire B"], arcs["Grand Couloir"], arcs["ROCHER DE L'OMBRE"]],
+        [arcs["Stade Descente"], arcs["Combe Saulire C"]]
     ),
     Sommet(
-        [arcs["Lac Creux"]],
-        [arcs["Lac Creux"], arcs["CREUX NOIRS"]]
+        [arcs["Lac Creux A"]],
+        [arcs["Lac Creux B"], arcs["CREUX NOIRS"]]
     ),
     Sommet(
-        [arcs["Turcs"], arcs["AIGUILLE DU FRUIT"]],
-        [arcs["Turcs"], arcs["Park City"]]
+        [arcs["Turcs A"], arcs["AIGUILLE DU FRUIT"]],
+        [arcs["Turcs B"], arcs["Park City"]]
     ),
     Sommet(
-        [arcs["GRAVELLES"], arcs["Lac Creux"], arcs["Park City"]],
-        [arcs["Cave des Creux"], arcs["Altiport"]]
+        [arcs["GRAVELLES"], arcs["Lac Creux B"], arcs["Park City"]],
+        [arcs["Cave des Creux"], arcs["Altiport A"]]
     ),
     Sommet(
-        [arcs["Turcs"], arcs["Suisses"], arcs["Altiport"], arcs["Super Pralong"]],
-        [arcs["SUISSES"], arcs["Mur"], arcs["Altiport"]]
+        [arcs["Turcs B"], arcs["Suisses"], arcs["Altiport B"], arcs["Super Pralong"]],
+        [arcs["SUISSES"], arcs["Mur"], arcs["Altiport C"]]
     ),
     Sommet(
         [arcs["PRALONG"]],
-        [arcs["Super Pralong"], arcs["Pralong"], arcs["Biollay Verdons"], arcs["Marquetty"], arcs["Biollay"]]
+        [arcs["Super Pralong"], arcs["Pralong A"], arcs["Biollay Verdons A"], arcs["Marquetty"], arcs["Biollay"]]
     ),
     Sommet(
-        [arcs["Pralong"], arcs["Altiport"]], # ajouter ALTIPORT
-        [arcs["Prameruel"], arcs["Pralong"], arcs["Altiport"]]
+        [arcs["Pralong A"], arcs["Altiport A"]], # ajouter ALTIPORT
+        [arcs["Prameruel"], arcs["Pralong B"], arcs["Altiport B"]]
     ),
     Sommet(
-        [arcs["JARDIN ALPIN"], arcs["Biollay Verdons"]],
+        [arcs["JARDIN ALPIN"], arcs["Biollay Verdons B"]],
         []
     ),
     Sommet(
-        [arcs["Biollay"], arcs["Altiport"]],
+        [arcs["Biollay"], arcs["Altiport C"], arcs["Pralong B"]],
         [arcs["PRALONG"]], # ajouter ALTIPORT
         "PRALONG"
     ),
     Sommet(
         [arcs["COQS"], arcs["CHENUS"], arcs["CRÊTES"], arcs["PRAZ JUGET"], arcs["Col de la Loze"]],
-        [arcs["Crêtes"], arcs["Lanches"], arcs["Chenus"], arcs["Anémones"], arcs["COL DE LA LOZE"], arcs["Lac Bleu"]],
+        [arcs["Crêtes A"], arcs["Lanches"], arcs["Chenus"], arcs["Anémones"], arcs["COL DE LA LOZE"], arcs["Lac Bleu"]],
         "CHENUS"
     ),
     Sommet(
@@ -259,25 +276,25 @@ sommets = [
         "COL DE LA LOZE"
     ),
     Sommet(
-        [arcs["Crêtes"], arcs["LOZE"], arcs["PLANTREY"], arcs["BOUC BLANC"]],
-        [arcs["Crêtes"], arcs["Loze Est"], arcs["Loze"], arcs["Dou du Midi"], arcs["Petit Dou"], arcs["Jean Blanc"], arcs["Bouc Blanc"], arcs["Déviation 1550"]],
+        [arcs["Crêtes A"], arcs["LOZE"], arcs["PLANTREY"], arcs["BOUC BLANC"]],
+        [arcs["Crêtes B"], arcs["Loze Est"], arcs["Loze"], arcs["Dou du Midi"], arcs["Petit Dou"], arcs["Jean Blanc"], arcs["Bouc Blanc A"], arcs["Déviation 1550"]],
         "LOZE"
     ),
     Sommet(
-        [arcs["Crêtes"], arcs["FORET"]],
-        [arcs["CRÊTES"], arcs["Arolles"]]
+        [arcs["Crêtes B"], arcs["FORET"]],
+        [arcs["CRÊTES"], arcs["Arolles A"]]
     ),
     Sommet(
-        [arcs["Dou des Lanches"], arcs["Bouc Blanc"], arcs["Arolles"], arcs["LA TANIA"]],
-        [arcs["DOU DES LANCHES"], arcs["PRAZ JUGET"], arcs["Arolles"], arcs["Bouc Blanc"], arcs["Plan Fontaine"], arcs["Jockeys"], arcs["Murettes"]],
+        [arcs["Dou des Lanches"], arcs["Bouc Blanc A"], arcs["Arolles A"], arcs["LA TANIA"]],
+        [arcs["DOU DES LANCHES"], arcs["PRAZ JUGET"], arcs["Arolles B"], arcs["Bouc Blanc B"], arcs["Plan Fontaine A"], arcs["Jockeys"], arcs["Murettes"]],
         "PRAZ JUGET"
     ),
     Sommet(
-        [arcs["Arolles"], arcs["Bouc Blanc"], arcs["Plan Fontaine"], arcs["GROS MURGER"]],
-        [arcs["BOUC BLANC"], arcs["Plan Fontaine"], arcs["Moretta Blanche"], arcs["Folyères"]]
+        [arcs["Arolles B"], arcs["Bouc Blanc B"], arcs["Plan Fontaine A"], arcs["GROS MURGER"]],
+        [arcs["BOUC BLANC"], arcs["Plan Fontaine B"], arcs["Moretta Blanche"], arcs["Folyères"]]
     ),
     Sommet(
-        [arcs["Folyères"], arcs["Plan Fontaine"], arcs["Moretta Blanche"]],
+        [arcs["Folyères"], arcs["Plan Fontaine B"], arcs["Moretta Blanche"]],
         [arcs["GROS MURGER"], arcs["LA TANIA"]],
         "LA TANIA"
     ),
@@ -297,13 +314,13 @@ sommets = [
         "COURCHEVEL - 1550m"
     ),
     Sommet(
-        [arcs["Verdons"], arcs["Anémones"], arcs["Jantzen"], arcs["Loze"], arcs["GRANGETTES"], arcs["TOVETS"], arcs["Petit Dou"]],
+        [arcs["Verdons B"], arcs["Anémones"], arcs["Jantzen"], arcs["Loze"], arcs["GRANGETTES"], arcs["TOVETS"], arcs["Petit Dou"]],
         # On considère que seul Verdons relie Lac à ce sommet
         [arcs["JARDIN ALPIN"], arcs["VERDONS"], arcs["LOZE"], arcs["CHENUS"], arcs["Stade"], arcs["Tovets"], arcs["Provères"], arcs["Brigues"], arcs["Amoureux"]]
     ),
     Sommet(
-        [arcs["Marquetty"], arcs["Renard"], arcs["Verdons"], arcs["Stade Descente"], arcs["Loze Est"], arcs["Lac Bleu"], arcs["Chenus"]],
-        [arcs["BIOLLAY"], arcs["SOURCES"], arcs["ROCHER DE L'OMBRE"], arcs["COQS"], arcs["Verdons"]],
+        [arcs["Marquetty"], arcs["Renard"], arcs["Verdons A"], arcs["Stade Descente"], arcs["Loze Est"], arcs["Lac Bleu"], arcs["Chenus"]],
+        [arcs["BIOLLAY"], arcs["SOURCES"], arcs["ROCHER DE L'OMBRE"], arcs["COQS"], arcs["Verdons B"]],
         "LAC"
     ),
     Sommet(
@@ -312,26 +329,26 @@ sommets = [
         "COURCHEVEL - 1650m"
     ),
     Sommet(
-        [arcs["Stade"], arcs["Granges"], arcs["Carabosse"], arcs["Praline"]],
+        [arcs["Stade"], arcs["Granges"], arcs["Carabosse"], arcs["Praline B"]],
         [arcs["STADE"], arcs["GRANGES"], arcs["Belvédère"]]
     ),
     Sommet(
-        [arcs["Chapelets"], arcs["Rochers"], arcs["Bel Air"], arcs["Praline"]],
-        [arcs["Praline"], arcs["CHAPELETS"]]
+        [arcs["Chapelets"], arcs["Rochers B"], arcs["Bel Air"], arcs["Praline A"]],
+        [arcs["Praline B"], arcs["CHAPELETS"]]
     ),
     Sommet(
         [arcs["CHAPELETS"], arcs["SIGNAL"]],
-        [arcs["Chapelets"], arcs["Rochers"], arcs["Grandes Bosses"]],
+        [arcs["Chapelets"], arcs["Rochers A"], arcs["Grandes Bosses A"]],
         "SIGNAL"
     ),
     Sommet(
-        [arcs["Rochers"], arcs["ARIONDAZ"]],
-        [arcs["COMBE"], arcs["Rochers"], arcs["Bel Air"], arcs["Ariondaz"]],
+        [arcs["Rochers A"], arcs["ARIONDAZ"]],
+        [arcs["COMBE"], arcs["Rochers B"], arcs["Bel Air"], arcs["Ariondaz"]],
         "BEL AIR"
     ),
     Sommet(
-        [arcs["Ariondaz"], arcs["GRANGES"], arcs["MARQUIS"], arcs["3 VALLÉES"]],
-        [arcs["SIGNAL"], arcs["Granges"], arcs["Carabosse"], arcs["Praline"], arcs["PTE BOSSE"], arcs["Indiens"], arcs["Piste Bleue"], arcs["Marquis"]],
+        [arcs["Ariondaz"], arcs["GRANGES"], arcs["MARQUIS"], arcs["3 VALLÉES"], arcs["Grandes Bosses B"]],
+        [arcs["SIGNAL"], arcs["Granges"], arcs["Carabosse"], arcs["Praline A"], arcs["PTE BOSSE"], arcs["Indiens"], arcs["Piste Bleue"], arcs["Marquis"]],
         "BOSSES"
     ),
     Sommet(
@@ -397,5 +414,5 @@ def ecrire_sommets(sommets, nom_fichier):
             nom_str = f"'nom': '{nom}'" if nom else ""
             f.write(f"{{'entrant': {entrant_str}, 'sortant': {sortant_str}, {nom_str}}}\n")
 
-#ecrire_arcs(arcs, "liste_pistes.txt")
-#ecrire_sommets(sommets, "liste_sommets.txt")
+ecrire_arcs(arcs, "liste_pistes.txt")
+ecrire_sommets(sommets, "liste_sommets.txt")

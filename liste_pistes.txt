@@ -42,25 +42,34 @@
 {'nom': 'ARIONDAZ', 'nature': 'telecabine'}
 {'nom': 'SAULIRE', 'nature': 'telepherique'}
 {'nom': 'Renard', 'nature': 'piste verte'}
-{'nom': 'Verdons', 'nature': 'piste verte'}
+{'nom': 'Verdons A', 'nature': 'piste verte'}
+{'nom': 'Verdons B', 'nature': 'piste verte'}
 {'nom': 'Lac Bleu', 'nature': 'piste verte'}
 {'nom': 'Loze Est', 'nature': 'piste verte'}
-{'nom': 'Plan Fontaine', 'nature': 'piste verte'}
+{'nom': 'Plan Fontaine A', 'nature': 'piste verte'}
+{'nom': 'Plan Fontaine B', 'nature': 'piste verte'}
 {'nom': 'Belvedere', 'nature': 'piste verte'}
-{'nom': 'Praline', 'nature': 'piste verte'}
+{'nom': 'Praline A', 'nature': 'piste verte'}
+{'nom': 'Praline B', 'nature': 'piste verte'}
 {'nom': 'Plan Mugnier', 'nature': 'piste bleue'}
 {'nom': 'Mont Russes', 'nature': 'piste bleue'}
 {'nom': 'Pyramide', 'nature': 'piste bleue'}
-{'nom': 'Altiport', 'nature': 'piste bleue'}
+{'nom': 'Altiport A', 'nature': 'piste bleue'}
+{'nom': 'Altiport B', 'nature': 'piste bleue'}
+{'nom': 'Altiport C', 'nature': 'piste bleue'}
 {'nom': 'Super Pralong', 'nature': 'piste bleue'}
-{'nom': 'Pralong', 'nature': 'piste bleue'}
-{'nom': 'Biollay Verdons', 'nature': 'piste bleue'}
+{'nom': 'Pralong A', 'nature': 'piste bleue'}
+{'nom': 'Pralong B', 'nature': 'piste bleue'}
+{'nom': 'Biollay Verdons A', 'nature': 'piste bleue'}
+{'nom': 'Biollay Verdons B', 'nature': 'piste bleue'}
 {'nom': 'Biollay', 'nature': 'piste bleue'}
 {'nom': 'Anemones', 'nature': 'piste bleue'}
 {'nom': 'Col de la Loze', 'nature': 'piste bleue'}
 {'nom': 'Folyeres', 'nature': 'piste bleue'}
-{'nom': 'Arolles', 'nature': 'piste bleue'}
-{'nom': 'Cretes', 'nature': 'piste bleue'}
+{'nom': 'Arolles A', 'nature': 'piste bleue'}
+{'nom': 'Arolles B', 'nature': 'piste bleue'}
+{'nom': 'Cretes A', 'nature': 'piste bleue'}
+{'nom': 'Cretes B', 'nature': 'piste bleue'}
 {'nom': 'Stade', 'nature': 'piste rouge'}
 {'nom': 'Tovets', 'nature': 'piste bleue'}
 {'nom': 'Proveres', 'nature': 'piste bleue'}
@@ -69,18 +78,23 @@
 {'nom': 'Marquis', 'nature': 'piste bleue'}
 {'nom': 'Granges', 'nature': 'piste bleue'}
 {'nom': 'Carabosse', 'nature': 'piste bleue'}
-{'nom': 'Grandes Bosses', 'nature': 'piste bleue'}
+{'nom': 'Grandes Bosses A', 'nature': 'piste bleue'}
+{'nom': 'Grandes Bosses B', 'nature': 'piste bleue'}
 {'nom': 'Ariondaz', 'nature': 'piste bleue'}
 {'nom': 'Indiens', 'nature': 'piste bleue'}
 {'nom': 'Gravelles', 'nature': 'piste bleue'}
 {'nom': 'Prameruel', 'nature': 'piste bleue'}
 {'nom': 'Jean Pachod', 'nature': 'piste rouge'}
 {'nom': 'Roc Merlet', 'nature': 'piste rouge'}
-{'nom': 'Creux', 'nature': 'piste rouge'}
+{'nom': 'Creux A', 'nature': 'piste rouge'}
+{'nom': 'Creux B', 'nature': 'piste rouge'}
 {'nom': 'Roc Mugnier', 'nature': 'piste rouge'}
-{'nom': 'Lac Creux', 'nature': 'piste rouge'}
+{'nom': 'Lac Creux A', 'nature': 'piste rouge'}
+{'nom': 'Lac Creux B', 'nature': 'piste rouge'}
 {'nom': 'Roches Grises', 'nature': 'piste rouge'}
-{'nom': 'Combe Saulire', 'nature': 'piste rouge'}
+{'nom': 'Combe Saulire A', 'nature': 'piste rouge'}
+{'nom': 'Combe Saulire B', 'nature': 'piste rouge'}
+{'nom': 'Combe Saulire C', 'nature': 'piste rouge'}
 {'nom': 'Park City', 'nature': 'piste rouge'}
 {'nom': 'Rama', 'nature': 'piste rouge'}
 {'nom': 'Stade Descente', 'nature': 'piste rouge'}
@@ -88,7 +102,8 @@
 {'nom': 'Cave des Creux', 'nature': 'piste rouge'}
 {'nom': 'Mur', 'nature': 'piste rouge'}
 {'nom': 'Lanches', 'nature': 'piste rouge'}
-{'nom': 'Bouc Blanc', 'nature': 'piste rouge'}
+{'nom': 'Bouc Blanc A', 'nature': 'piste rouge'}
+{'nom': 'Bouc Blanc B', 'nature': 'piste rouge'}
 {'nom': 'Moretta Blanche', 'nature': 'piste rouge'}
 {'nom': 'Murettes', 'nature': 'piste rouge'}
 {'nom': 'Amoureux', 'nature': 'piste rouge'}
@@ -101,10 +116,12 @@
 {'nom': 'Chenus', 'nature': 'piste rouge'}
 {'nom': 'Deviation 1550', 'nature': 'piste rouge'}
 {'nom': 'Bel Air', 'nature': 'piste rouge'}
-{'nom': 'Rochers', 'nature': 'piste rouge'}
+{'nom': 'Rochers A', 'nature': 'piste rouge'}
+{'nom': 'Rochers B', 'nature': 'piste rouge'}
 {'nom': 'Chapelets', 'nature': 'piste rouge'}
 {'nom': 'Chanrossa', 'nature': 'piste noire'}
-{'nom': 'Turcs', 'nature': 'piste noire'}
+{'nom': 'Turcs A', 'nature': 'piste noire'}
+{'nom': 'Turcs B', 'nature': 'piste noire'}
 {'nom': 'Suisses', 'nature': 'piste noire'}
 {'nom': 'Combe Pylones', 'nature': 'piste noire'}
 {'nom': 'Grand Couloir', 'nature': 'piste noire'}
