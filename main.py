@@ -53,11 +53,11 @@ class Arc():
     def __init__(self, nom: str, nature: str, duree_1: float=0, duree_2: float=0):
         self.nature = nature
         self.nom = nom
-        if self.nature == ("téléski" or "télésiège" or "télécabine" or "téléphérique"):
+        if self.nature == "téléski" or self.nature == "télésiège" or self.nature == "télécabine" or self.nature == "téléphérique":
             self.duree = (duree_1 / self.echelle) / (self.v_remontees[self.nature] / 3.6) / 60 + self.attente_remontees
-        elif self.nature == ("piste verte" or "piste bleue" or "piste rouge" or "piste noire"):
+        elif self.nature == "piste verte" or self.nature == "piste bleue" or self.nature == "piste rouge" or self.nature == "piste noire":
             self.duree_1 = (duree_1 / self.echelle) / (self.v_pistes[self.nature][0] / 3.6) / 60 # durée pour un débutant
-            self.duree_2 = (duree_2 / self.echelle) / (self.v_pistes[self.nature][1] / 3.6) / 60 # durée pour un fonceur
+            self.duree_2 = (duree_1 / self.echelle) / (self.v_pistes[self.nature][1] / 3.6) / 60 # durée pour un fonceur
     
     def get_duree(self, niveau: str="débutant"):
         """
@@ -255,11 +255,13 @@ sommets = [
     ),
     Sommet(
         [arcs["ROC MUGNIER"], arcs["COMBE"], arcs["Pyramide"], arcs["Mont Russes"], arcs["Plan Mugnier"], arcs["Grandes Bosses A"]],
-        [arcs["Roc Mugnier"], arcs["PYRAMIDE"], arcs["Grandes Bosses B"]]
+        [arcs["Roc Mugnier"], arcs["PYRAMIDE"], arcs["Grandes Bosses B"]],
+        "2"
     ),
     Sommet(
         [arcs["PYRAMIDE"], arcs["Roc Merlet"]],
-        [arcs["Plan Mugnier"], arcs["Mont Russes"], arcs["Pyramide"], arcs["ROC MERLET"]]
+        [arcs["Plan Mugnier"], arcs["Mont Russes"], arcs["Pyramide"], arcs["ROC MERLET"]],
+        "1"
     ),
     Sommet(
         [arcs["CREUX NOIRS"]],
@@ -283,35 +285,43 @@ sommets = [
     ),
     Sommet(
         [arcs["Combe Saulire B"], arcs["Grand Couloir"], arcs["ROCHER DE L'OMBRE"]],
-        [arcs["Stade Descente"], arcs["Combe Saulire C"]]
+        [arcs["Stade Descente"], arcs["Combe Saulire C"]],
+        "16"
     ),
     Sommet(
         [arcs["Lac Creux A"]],
-        [arcs["Lac Creux B"], arcs["CREUX NOIRS"]]
+        [arcs["Lac Creux B"], arcs["CREUX NOIRS"]],
+        "10"
     ),
     Sommet(
         [arcs["Turcs A"], arcs["AIGUILLE DU FRUIT"]],
-        [arcs["Turcs B"], arcs["Park City"]]
+        [arcs["Turcs B"], arcs["Park City"]],
+        "9"
     ),
     Sommet(
         [arcs["GRAVELLES"], arcs["Lac Creux B"], arcs["Park City"]],
-        [arcs["Cave des Creux"], arcs["Altiport A"]]
+        [arcs["Cave des Creux"], arcs["Altiport A"]],
+        "7"
     ),
     Sommet(
-        [arcs["Turcs B"], arcs["Suisses"], arcs["Altiport B"], arcs["Super Pralong"]],
-        [arcs["SUISSES"], arcs["Mur"], arcs["Altiport C"]]
+        [arcs["Turcs B"], arcs["Suisses"], arcs["Altiport A"], arcs["Super Pralong"]],
+        [arcs["SUISSES"], arcs["Mur"], arcs["Altiport C"]],
+        "8"
     ),
     Sommet(
         [arcs["PRALONG"]],
-        [arcs["Super Pralong"], arcs["Pralong A"], arcs["Biollay Verdons A"], arcs["Marquetty"], arcs["Biollay"]]
+        [arcs["Super Pralong"], arcs["Pralong A"], arcs["Biollay Verdons A"], arcs["Marquetty"], arcs["Biollay"]],
+        "11"
     ),
     Sommet(
         [arcs["Pralong A"], arcs["Altiport A"]], # ajouter ALTIPORT
-        [arcs["Prameruel"], arcs["Pralong B"], arcs["Altiport B"]]
+        [arcs["Prameruel"], arcs["Pralong B"], arcs["Altiport B"]],
+        "12"
     ),
     Sommet(
         [arcs["JARDIN ALPIN"], arcs["Biollay Verdons B"]],
-        []
+        [],
+        "13"
     ),
     Sommet(
         [arcs["Biollay"], arcs["Altiport C"], arcs["Pralong B"]],
@@ -335,7 +345,8 @@ sommets = [
     ),
     Sommet(
         [arcs["Crêtes B"], arcs["FORET"]],
-        [arcs["CRÊTES"], arcs["Arolles A"]]
+        [arcs["CRÊTES"], arcs["Arolles A"]],
+        "17"
     ),
     Sommet(
         [arcs["Dou des Lanches"], arcs["Bouc Blanc A"], arcs["Arolles A"], arcs["LA TANIA"]],
@@ -344,7 +355,8 @@ sommets = [
     ),
     Sommet(
         [arcs["Arolles B"], arcs["Bouc Blanc B"], arcs["Plan Fontaine A"], arcs["GROS MURGER"]],
-        [arcs["BOUC BLANC"], arcs["Plan Fontaine B"], arcs["Moretta Blanche"], arcs["Folyères"]]
+        [arcs["BOUC BLANC"], arcs["Plan Fontaine B"], arcs["Moretta Blanche"], arcs["Folyères"]],
+        "15"
     ),
     Sommet(
         [arcs["Folyères"], arcs["Plan Fontaine B"], arcs["Moretta Blanche"]],
@@ -369,7 +381,8 @@ sommets = [
     Sommet(
         [arcs["Verdons B"], arcs["Anémones"], arcs["Jantzen"], arcs["Loze"], arcs["GRANGETTES"], arcs["TOVETS"], arcs["Petit Dou"]],
         # On considère que seul Verdons relie Lac à ce sommet
-        [arcs["JARDIN ALPIN"], arcs["VERDONS"], arcs["LOZE"], arcs["CHENUS"], arcs["Stade"], arcs["Tovets"], arcs["Provères"], arcs["Brigues"], arcs["Amoureux"]]
+        [arcs["JARDIN ALPIN"], arcs["VERDONS"], arcs["LOZE"], arcs["CHENUS"], arcs["Stade"], arcs["Tovets"], arcs["Provères"], arcs["Brigues"], arcs["Amoureux"]],
+        "14"
     ),
     Sommet(
         [arcs["Marquetty"], arcs["Renard"], arcs["Verdons A"], arcs["Stade Descente"], arcs["Loze Est"], arcs["Lac Bleu"], arcs["Chenus"]],
@@ -383,11 +396,13 @@ sommets = [
     ),
     Sommet(
         [arcs["Stade"], arcs["Granges"], arcs["Carabosse"], arcs["Praline B"]],
-        [arcs["STADE"], arcs["GRANGES"], arcs["Belvédère"]]
+        [arcs["STADE"], arcs["GRANGES"], arcs["Belvédère"]],
+        "4"
     ),
     Sommet(
         [arcs["Chapelets"], arcs["Rochers B"], arcs["Bel Air"], arcs["Praline A"]],
-        [arcs["Praline B"], arcs["CHAPELETS"]]
+        [arcs["Praline B"], arcs["CHAPELETS"]],
+        "3"
     ),
     Sommet(
         [arcs["CHAPELETS"], arcs["SIGNAL"]],
@@ -406,31 +421,108 @@ sommets = [
     ),
     Sommet(
         [arcs["PTE BOSSE"]],
-        [arcs["Gravelles"]]
+        [arcs["Gravelles"]],
+        "6"
     ),
     Sommet(
         [arcs["STADE"]],
-        [arcs["Stade"]]
+        [arcs["Stade"]],
+        "5"
     )
 ]
 
 # Dijkstra
 
+def sommets_adjacents(sommet, sommets):
+    """
+    Retourne la liste des sommets adjacents à un sommet donné.
+    :sommet: Sommet pour lequel trouver les sommets adjacents
+    :sommets: liste de tous les sommets du graphe
+    :return: liste de sommets adjacents
+    """
+    adjacents = set()
+    for arc in sommet.sortant:
+        for s in sommets:
+            if arc in s.entrant:
+                adjacents.add(s)
+                break
+    return list(adjacents)
+
+def arc_existe(sommet1, sommet2, sommets):
+    """
+    Vérifie si un arc existe entre deux sommets donnés.
+    :sommet1: premier sommet
+    :sommet2: deuxième sommet
+    :sommets: liste de tous les sommets du graphe
+    :return: booléen indiquant si un arc existe entre les deux sommets
+    """
+    return sommet2 in sommets_adjacents(sommet1, sommets)
+
+print(arc_existe(sommets[15], sommets[13], sommets))
+
+def distance_minimale(sommet1, sommet2, sommets, niveau='debutant'):
+    """
+    Retourne la distance minimale entre deux sommets adjacents.
+    :sommet1: premier sommet
+    :sommet2: deuxième sommet
+    :sommets: liste de tous les sommets du graphe
+    :niveau: niveau du skieur ('debutant' ou 'avance')
+    :return: distance minimale entre les deux sommets si ils sont adjacents, None sinon
+    """
+    if not arc_existe(sommet1, sommet2, sommets):
+        return None
+    distances = []
+    for arc in sommet1.sortant:
+        if arc in sommet2.entrant:
+            pass
+            if hasattr(arc, 'duree'):
+                distances.append(arc.duree)
+            elif niveau == 'debutant' and hasattr(arc, 'duree_1'):
+                distances.append(arc.duree_1)
+            elif niveau == 'avance' and hasattr(arc, 'duree_2'):
+                distances.append(arc.duree_2)
+    return round(min(distances), 2) if distances else None
+
+fd = open('liste_plus_courtes_distances.txt', 'w')
+for sommet1 in sommets:
+    for sommet2 in sommets:
+        if sommet1 != sommet2:
+            distance = distance_minimale(sommet1, sommet2, sommets)
+            if distance:
+                fd.write(f"{sommet1.nom} -> {sommet2.nom} : {distance}\n")
+fd.close()
+
+def dijkstra(s: Sommet, p: Sommet, sommets=sommets):
+    T = {s}
+    d = {s: 0}
+    for i in sommets:
+        if i != s:
+            if arc_existe(s, i, sommets):
+                pass
+
 # Écriture des arcs et sommets dans des fichiers
 
-def ecrire_arcs(arcs, nom_fichier):
+def ecrire_arcs(arcs, nom_fichier, niveau='debutant'):
     """
     Écrit les arcs dans un fichier texte.
     :arcs: liste d'arcs
     :nom_fichier: nom du fichier dans lequel écrire
+    :niveau: niveau du skieur ('debutant' ou 'avance')
     :return: None
     """
     with open(nom_fichier, 'w') as f:
         for arc in arcs.values():
             nom_sans_accents = unidecode(arc.nom)
             nature_sans_accents = unidecode(arc.nature)
-            duree = arc.duree if hasattr(arc, 'duree') else 0
-            f.write(f"{{'nom': '{nom_sans_accents}', 'nature': '{nature_sans_accents}', 'duree': {duree}}}\n")
+            if hasattr(arc, 'duree'):
+                duree = arc.duree
+            elif niveau == 'debutant' and hasattr(arc, 'duree_1'):
+                duree = arc.duree_1
+            elif niveau == 'avance' and hasattr(arc, 'duree_2'):
+                duree = arc.duree_2
+            else:
+                duree = 0
+            f.write(f"{{'nom': '{nom_sans_accents}', 'nature': '{nature_sans_accents}', 'duree': {round(duree, 2)}}}\n")
 
 def ecrire_sommets(sommets, nom_fichier):
     """
