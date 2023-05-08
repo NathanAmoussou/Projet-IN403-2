@@ -305,7 +305,7 @@ sommets = [
     ),
     Sommet(
         [arcs["Turcs B"], arcs["Suisses"], arcs["Altiport A"], arcs["Super Pralong"]],
-        [arcs["SUISSES"], arcs["Mur"], arcs["Altiport C"]],
+        [arcs["SUISSES"], arcs["Mur"], arcs["Altiport B"]],
         "8"
     ),
     Sommet(
@@ -314,8 +314,8 @@ sommets = [
         "11"
     ),
     Sommet(
-        [arcs["Pralong A"], arcs["Altiport A"]], # ajouter ALTIPORT
-        [arcs["Prameruel"], arcs["Pralong B"], arcs["Altiport B"]],
+        [arcs["Pralong A"], arcs["Altiport B"]], # ajouter ALTIPORT
+        [arcs["Prameruel"], arcs["Pralong B"], arcs["Altiport C"]],
         "12"
     ),
     Sommet(
@@ -458,8 +458,6 @@ def arc_existe(sommet1, sommet2, sommets):
     """
     return sommet2 in sommets_adjacents(sommet1, sommets)
 
-print(arc_existe(sommets[15], sommets[13], sommets))
-
 def distance_minimale(sommet1, sommet2, sommets, niveau='debutant'):
     """
     Retourne la distance minimale entre deux sommets adjacents.
@@ -493,13 +491,47 @@ for sommet1 in sommets:
 fd.close()
 
 def dijkstra(s: Sommet, p: Sommet, sommets=sommets):
+    """
+    Algorithme de Dijkstra pour trouver le plus court chemin entre deux sommets.
+    :s: sommet de départ
+    :p: sommet d'arrivée
+    :sommets: liste de tous les sommets du graphe
+    :return: None
+    """
+    # Initialisation
+    V = set(sommets)
     T = {s}
     d = {s: 0}
+    pere = {s: None}
     for i in sommets:
         if i != s:
             if arc_existe(s, i, sommets):
-                pass
+                d[i] = distance_minimale(s, i, sommets)
+                pere[i] = s
+            else:
+                d[i] = float('inf')
+    # Boucle principale
+    while T != V:
+        t = min(V - T, key=lambda x: d[x])
+        T.add(t)
+        for k in sommets_adjacents(t, sommets):
+            if k not in T:
+                dist = d[t] + distance_minimale(t, k, sommets)
+                if dist < d.get(k, float('inf')):
+                    d[k] = dist
+                    pere[k] = t
+    chemin = [p]
+    while pere[p] is not None:
+        chemin.append(pere[p])
+        p = pere[p]
+    chemin.reverse()
 
+    return chemin, d
+
+chemin, distance = dijkstra(sommets[0], sommets[24])
+for sommet, valeurs in distance.items():
+    print(f"{sommet.nom} : {valeurs}") if sommet in chemin else None
+print(' -> '.join([sommet.nom for sommet in chemin]))
 # Écriture des arcs et sommets dans des fichiers
 
 def ecrire_arcs(arcs, nom_fichier, niveau='debutant'):

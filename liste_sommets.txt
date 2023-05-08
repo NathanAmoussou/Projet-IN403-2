@@ -11,9 +11,9 @@
 {'entrant': ['Lac Creux A'], 'sortant': ['Lac Creux B', 'CREUX NOIRS'], 'nom': '10'}
 {'entrant': ['Turcs A', 'AIGUILLE DU FRUIT'], 'sortant': ['Turcs B', 'Park City'], 'nom': '9'}
 {'entrant': ['GRAVELLES', 'Lac Creux B', 'Park City'], 'sortant': ['Cave des Creux', 'Altiport A'], 'nom': '7'}
-{'entrant': ['Turcs B', 'Suisses', 'Altiport A', 'Super Pralong'], 'sortant': ['SUISSES', 'Mur', 'Altiport C'], 'nom': '8'}
+{'entrant': ['Turcs B', 'Suisses', 'Altiport A', 'Super Pralong'], 'sortant': ['SUISSES', 'Mur', 'Altiport B'], 'nom': '8'}
 {'entrant': ['PRALONG'], 'sortant': ['Super Pralong', 'Pralong A', 'Biollay Verdons A', 'Marquetty', 'Biollay'], 'nom': '11'}
-{'entrant': ['Pralong A', 'Altiport A'], 'sortant': ['Prameruel', 'Pralong B', 'Altiport B'], 'nom': '12'}
+{'entrant': ['Pralong A', 'Altiport B'], 'sortant': ['Prameruel', 'Pralong B', 'Altiport C'], 'nom': '12'}
 {'entrant': ['JARDIN ALPIN', 'Biollay Verdons B'], 'sortant': [], 'nom': '13'}
 {'entrant': ['Biollay', 'Altiport C', 'Pralong B'], 'sortant': ['PRALONG'], 'nom': 'PRALONG'}
 {'entrant': ['COQS', 'CHENUS', 'CRETES', 'PRAZ JUGET', 'Col de la Loze'], 'sortant': ['Cretes A', 'Lanches', 'Chenus', 'Anemones', 'COL DE LA LOZE', 'Lac Bleu'], 'nom': 'CHENUS'}
