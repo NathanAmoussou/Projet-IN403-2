@@ -1,10 +1,7 @@
-from unidecode import unidecode
-from typing import List
-
-# Partie 1 : Structure de données
+# Structure de données
 
 class Sommet():
-    def __init__(self, entrant: list, sortant: list, nom: str=""):
+    def __init__(self, entrant: list=[], sortant: list=[], nom: str=""):
         """
         Crée un sommet avec ses arcs entrants et sortants et son nom (optionnel)
         :param entrant: liste des arcs entrants
@@ -431,6 +428,8 @@ sommets = [
     )
 ]
 
+sommets_dict = {sommet.nom: sommet for sommet in sommets}
+
 # Dijkstra
 
 def sommets_adjacents(sommet, sommets):
@@ -470,27 +469,22 @@ def distance_minimale(sommet1, sommet2, sommets, niveau='debutant'):
     if not arc_existe(sommet1, sommet2, sommets):
         return None
     distances = []
+    chemin = []
     for arc in sommet1.sortant:
         if arc in sommet2.entrant:
             pass
             if hasattr(arc, 'duree'):
                 distances.append(arc.duree)
+                chemin.append(arc)
             elif niveau == 'debutant' and hasattr(arc, 'duree_1'):
                 distances.append(arc.duree_1)
+                chemin.append(arc)
             elif niveau == 'avance' and hasattr(arc, 'duree_2'):
                 distances.append(arc.duree_2)
-    return round(min(distances), 2) if distances else None
+                chemin.append(arc)
+    return round(min(distances), 2) if distances else None, chemin[distances.index(min(distances))] if distances else None
 
-fd = open('liste_plus_courtes_distances.txt', 'w')
-for sommet1 in sommets:
-    for sommet2 in sommets:
-        if sommet1 != sommet2:
-            distance = distance_minimale(sommet1, sommet2, sommets)
-            if distance:
-                fd.write(f"{sommet1.nom} -> {sommet2.nom} : {distance}\n")
-fd.close()
-
-def dijkstra(s: Sommet, p: Sommet, sommets=sommets):
+def dijkstra(s: Sommet, p: Sommet, niveau="debutant", sommets=sommets):
     """
     Algorithme de Dijkstra pour trouver le plus court chemin entre deux sommets.
     :s: sommet de départ
@@ -503,10 +497,14 @@ def dijkstra(s: Sommet, p: Sommet, sommets=sommets):
     T = {s}
     d = {s: 0}
     pere = {s: None}
+    
+    if s == p:
+        raise ValueError("Les sommets de départ et d'arrivée sont les mêmes.")
+
     for i in sommets:
         if i != s:
             if arc_existe(s, i, sommets):
-                d[i] = distance_minimale(s, i, sommets)
+                d[i] = distance_minimale(s, i, sommets, niveau)[0]
                 pere[i] = s
             else:
                 d[i] = float('inf')
@@ -516,62 +514,48 @@ def dijkstra(s: Sommet, p: Sommet, sommets=sommets):
         T.add(t)
         for k in sommets_adjacents(t, sommets):
             if k not in T:
-                dist = d[t] + distance_minimale(t, k, sommets)
+                dist = d[t] + distance_minimale(t, k, sommets, niveau)[0]
                 if dist < d.get(k, float('inf')):
                     d[k] = dist
                     pere[k] = t
     chemin = [p]
-    while pere[p] is not None:
-        chemin.append(pere[p])
-        p = pere[p]
-    chemin.reverse()
+    try:
+        while pere[p] is not None:
+            chemin.append(pere[p])
+            p = pere[p]
+        chemin.reverse()
+    except:
+        raise ValueError("Il n'existe pas de chemin entre les deux sommets.")
 
-    return chemin, d
+    return chemin, d[max(d, key=lambda x: d[x])] #d
 
-chemin, distance = dijkstra(sommets[0], sommets[24])
-for sommet, valeurs in distance.items():
-    print(f"{sommet.nom} : {valeurs}") if sommet in chemin else None
-print(' -> '.join([sommet.nom for sommet in chemin]))
-# Écriture des arcs et sommets dans des fichiers
-
-def ecrire_arcs(arcs, nom_fichier, niveau='debutant'):
+def construire_itineraire(chemin, sommets):
     """
-    Écrit les arcs dans un fichier texte.
-    :arcs: liste d'arcs
-    :nom_fichier: nom du fichier dans lequel écrire
-    :niveau: niveau du skieur ('debutant' ou 'avance')
-    :return: None
+    Construit l'itinéraire à suivre à partir du chemin retourné par Dijkstra.
+    :chemin: chemin retourné par Dijkstra
+    :sommets: liste de tous les sommets du graphe
+    :return: itinéraire à suivre
     """
-    with open(nom_fichier, 'w') as f:
-        for arc in arcs.values():
-            nom_sans_accents = unidecode(arc.nom)
-            nature_sans_accents = unidecode(arc.nature)
-            if hasattr(arc, 'duree'):
-                duree = arc.duree
-            elif niveau == 'debutant' and hasattr(arc, 'duree_1'):
-                duree = arc.duree_1
-            elif niveau == 'avance' and hasattr(arc, 'duree_2'):
-                duree = arc.duree_2
-            else:
-                duree = 0
-            f.write(f"{{'nom': '{nom_sans_accents}', 'nature': '{nature_sans_accents}', 'duree': {round(duree, 2)}}}\n")
+    itineraire = []
+    for i in range(len(chemin) - 1):
+        print(chemin[i], chemin[i+1])
+        print(distance_minimale(chemin[i], chemin[i+1], sommets))
+        itineraire.append(distance_minimale(chemin[i], chemin[i+1], sommets))
+    return itineraire
 
-def ecrire_sommets(sommets, nom_fichier):
-    """
-    Écrit les sommets dans un fichier texte.
-    :sommets: liste de sommets
-    :nom_fichier: nom du fichier dans lequel écrire
-    :return: None
-    """
-    with open(nom_fichier, 'w') as f:
-        for sommet in sommets:
-            entrant = [unidecode(arc.nom) for arc in sommet.entrant]
-            sortant = [unidecode(arc.nom) for arc in sommet.sortant]
-            nom = unidecode(sommet.nom) if sommet.nom else ""
-            entrant_str = str(entrant)
-            sortant_str = str(sortant)
-            nom_str = f"'nom': '{nom}'" if nom else ""
-            f.write(f"{{'entrant': {entrant_str}, 'sortant': {sortant_str}, {nom_str}}}\n")
+dijkstra_test = dijkstra(sommets_dict['PRAZ JUGET'], sommets_dict['CREUX'], niveau='avance', sommets=sommets)
+print(" -> ".join([sommet.nom for sommet in dijkstra_test[0]]))
+for i in range(len(dijkstra_test[0]) - 1):
+    x = distance_minimale(dijkstra_test[0][i], dijkstra_test[0][i+1], sommets)[1]
+    print(x.nature, x.nom)
+print(dijkstra_test[1])
 
-ecrire_arcs(arcs, "liste_pistes.txt")
-ecrire_sommets(sommets, "liste_sommets.txt")
+# Interface CLI
+
+
+
+
+
+
+
+
