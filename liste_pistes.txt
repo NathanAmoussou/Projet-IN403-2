@@ -1,131 +1,131 @@
-{'nom': 'PYRAMIDE', 'nature': 'teleski'}
-{'nom': 'SOURCES', 'nature': 'teleski'}
-{'nom': 'ROCHER DE L'OMBRE', 'nature': 'teleski'}
-{'nom': 'PRAZ JUGET', 'nature': 'teleski'}
-{'nom': 'BOUC BLANC', 'nature': 'teleski'}
-{'nom': 'GROS MURGER', 'nature': 'teleski'}
-{'nom': 'LOZE', 'nature': 'teleski'}
-{'nom': 'STADE', 'nature': 'teleski'}
-{'nom': 'EPICEA', 'nature': 'teleski'}
-{'nom': 'MARQUIS', 'nature': 'teleski'}
-{'nom': 'STE AGATHE', 'nature': 'teleski'}
-{'nom': 'GRANGES', 'nature': 'teleski'}
-{'nom': 'COMBE', 'nature': 'teleski'}
-{'nom': 'PTE BOSSE', 'nature': 'teleski'}
-{'nom': 'CHANROSSA', 'nature': 'telesiege'}
-{'nom': 'ROC MERLET', 'nature': 'telesiege'}
-{'nom': 'ROC MUGNIER', 'nature': 'telesiege'}
-{'nom': 'CREUX NOIRS', 'nature': 'telesiege'}
-{'nom': 'MARMOTTES', 'nature': 'telesiege'}
-{'nom': 'SUISSES', 'nature': 'telesiege'}
-{'nom': 'BIOLLAY', 'nature': 'telesiege'}
-{'nom': 'PRALONG', 'nature': 'telesiege'}
-{'nom': 'COQS', 'nature': 'telesiege'}
-{'nom': 'COL DE LA LOZE', 'nature': 'telesiege'}
-{'nom': 'DOU DES LANCHES', 'nature': 'telesiege'}
-{'nom': 'CRETES', 'nature': 'telesiege'}
-{'nom': 'PLANTREY', 'nature': 'telesiege'}
-{'nom': 'TOVETS', 'nature': 'telesiege'}
-{'nom': '3 VALLEES', 'nature': 'telesiege'}
-{'nom': 'CHAPELETS', 'nature': 'telesiege'}
-{'nom': 'SIGNAL', 'nature': 'telesiege'}
-{'nom': 'GRAVELLES', 'nature': 'telesiege'}
-{'nom': 'AIGUILLE DU FRUIT', 'nature': 'telesiege'}
-{'nom': 'VIZELLE', 'nature': 'telecabine'}
-{'nom': 'JARDIN ALPIN', 'nature': 'telecabine'}
-{'nom': 'LA TANIA', 'nature': 'telecabine'}
-{'nom': 'FORET', 'nature': 'telecabine'}
-{'nom': 'PRAZ', 'nature': 'telecabine'}
-{'nom': 'CHENUS', 'nature': 'telecabine'}
-{'nom': 'VERDONS', 'nature': 'telecabine'}
-{'nom': 'GRANGETTES', 'nature': 'telecabine'}
-{'nom': 'ARIONDAZ', 'nature': 'telecabine'}
-{'nom': 'SAULIRE', 'nature': 'telepherique'}
-{'nom': 'Renard', 'nature': 'piste verte'}
-{'nom': 'Verdons A', 'nature': 'piste verte'}
-{'nom': 'Verdons B', 'nature': 'piste verte'}
-{'nom': 'Lac Bleu', 'nature': 'piste verte'}
-{'nom': 'Loze Est', 'nature': 'piste verte'}
-{'nom': 'Plan Fontaine A', 'nature': 'piste verte'}
-{'nom': 'Plan Fontaine B', 'nature': 'piste verte'}
-{'nom': 'Belvedere', 'nature': 'piste verte'}
-{'nom': 'Praline A', 'nature': 'piste verte'}
-{'nom': 'Praline B', 'nature': 'piste verte'}
-{'nom': 'Plan Mugnier', 'nature': 'piste bleue'}
-{'nom': 'Mont Russes', 'nature': 'piste bleue'}
-{'nom': 'Pyramide', 'nature': 'piste bleue'}
-{'nom': 'Altiport A', 'nature': 'piste bleue'}
-{'nom': 'Altiport B', 'nature': 'piste bleue'}
-{'nom': 'Altiport C', 'nature': 'piste bleue'}
-{'nom': 'Super Pralong', 'nature': 'piste bleue'}
-{'nom': 'Pralong A', 'nature': 'piste bleue'}
-{'nom': 'Pralong B', 'nature': 'piste bleue'}
-{'nom': 'Biollay Verdons A', 'nature': 'piste bleue'}
-{'nom': 'Biollay Verdons B', 'nature': 'piste bleue'}
-{'nom': 'Biollay', 'nature': 'piste bleue'}
-{'nom': 'Anemones', 'nature': 'piste bleue'}
-{'nom': 'Col de la Loze', 'nature': 'piste bleue'}
-{'nom': 'Folyeres', 'nature': 'piste bleue'}
-{'nom': 'Arolles A', 'nature': 'piste bleue'}
-{'nom': 'Arolles B', 'nature': 'piste bleue'}
-{'nom': 'Cretes A', 'nature': 'piste bleue'}
-{'nom': 'Cretes B', 'nature': 'piste bleue'}
-{'nom': 'Stade', 'nature': 'piste rouge'}
-{'nom': 'Tovets', 'nature': 'piste bleue'}
-{'nom': 'Proveres', 'nature': 'piste bleue'}
-{'nom': 'Cospillot', 'nature': 'piste bleue'}
-{'nom': 'Piste Bleue', 'nature': 'piste bleue'}
-{'nom': 'Marquis', 'nature': 'piste bleue'}
-{'nom': 'Granges', 'nature': 'piste bleue'}
-{'nom': 'Carabosse', 'nature': 'piste bleue'}
-{'nom': 'Grandes Bosses A', 'nature': 'piste bleue'}
-{'nom': 'Grandes Bosses B', 'nature': 'piste bleue'}
-{'nom': 'Ariondaz', 'nature': 'piste bleue'}
-{'nom': 'Indiens', 'nature': 'piste bleue'}
-{'nom': 'Gravelles', 'nature': 'piste bleue'}
-{'nom': 'Prameruel', 'nature': 'piste bleue'}
-{'nom': 'Jean Pachod', 'nature': 'piste rouge'}
-{'nom': 'Roc Merlet', 'nature': 'piste rouge'}
-{'nom': 'Creux A', 'nature': 'piste rouge'}
-{'nom': 'Creux B', 'nature': 'piste rouge'}
-{'nom': 'Roc Mugnier', 'nature': 'piste rouge'}
-{'nom': 'Lac Creux A', 'nature': 'piste rouge'}
-{'nom': 'Lac Creux B', 'nature': 'piste rouge'}
-{'nom': 'Roches Grises', 'nature': 'piste rouge'}
-{'nom': 'Combe Saulire A', 'nature': 'piste rouge'}
-{'nom': 'Combe Saulire B', 'nature': 'piste rouge'}
-{'nom': 'Combe Saulire C', 'nature': 'piste rouge'}
-{'nom': 'Park City', 'nature': 'piste rouge'}
-{'nom': 'Rama', 'nature': 'piste rouge'}
-{'nom': 'Stade Descente', 'nature': 'piste rouge'}
-{'nom': 'Marquetty', 'nature': 'piste rouge'}
-{'nom': 'Cave des Creux', 'nature': 'piste rouge'}
-{'nom': 'Mur', 'nature': 'piste rouge'}
-{'nom': 'Lanches', 'nature': 'piste rouge'}
-{'nom': 'Bouc Blanc A', 'nature': 'piste rouge'}
-{'nom': 'Bouc Blanc B', 'nature': 'piste rouge'}
-{'nom': 'Moretta Blanche', 'nature': 'piste rouge'}
-{'nom': 'Murettes', 'nature': 'piste rouge'}
-{'nom': 'Amoureux', 'nature': 'piste rouge'}
-{'nom': 'Saint Bon', 'nature': 'piste rouge'}
-{'nom': 'Brigues', 'nature': 'piste rouge'}
-{'nom': 'Loze', 'nature': 'piste rouge'}
-{'nom': 'Dou du Midi', 'nature': 'piste rouge'}
-{'nom': 'Petit Dou', 'nature': 'piste rouge'}
-{'nom': 'Jantzen', 'nature': 'piste rouge'}
-{'nom': 'Chenus', 'nature': 'piste rouge'}
-{'nom': 'Deviation 1550', 'nature': 'piste rouge'}
-{'nom': 'Bel Air', 'nature': 'piste rouge'}
-{'nom': 'Rochers A', 'nature': 'piste rouge'}
-{'nom': 'Rochers B', 'nature': 'piste rouge'}
-{'nom': 'Chapelets', 'nature': 'piste rouge'}
-{'nom': 'Chanrossa', 'nature': 'piste noire'}
-{'nom': 'Turcs A', 'nature': 'piste noire'}
-{'nom': 'Turcs B', 'nature': 'piste noire'}
-{'nom': 'Suisses', 'nature': 'piste noire'}
-{'nom': 'Combe Pylones', 'nature': 'piste noire'}
-{'nom': 'Grand Couloir', 'nature': 'piste noire'}
-{'nom': 'm', 'nature': 'piste noire'}
-{'nom': 'Dou des Lanches', 'nature': 'piste noire'}
-{'nom': 'Jockeys', 'nature': 'piste noire'}
-{'nom': 'Jean Blanc', 'nature': 'piste noire'}
+{'nom': 'PYRAMIDE', 'nature': 'teleski', 'duree': 15.021248774109186}
+{'nom': 'SOURCES', 'nature': 'teleski', 'duree': 13.609022556390977}
+{'nom': 'ROCHER DE L'OMBRE', 'nature': 'teleski', 'duree': 15.178162798300097}
+{'nom': 'PRAZ JUGET', 'nature': 'teleski', 'duree': 15.491990846681922}
+{'nom': 'BOUC BLANC', 'nature': 'teleski', 'duree': 17.531873161163777}
+{'nom': 'GROS MURGER', 'nature': 'teleski', 'duree': 15.178162798300097}
+{'nom': 'LOZE', 'nature': 'teleski', 'duree': 15.805818895063748}
+{'nom': 'STADE', 'nature': 'teleski', 'duree': 13.138280483818242}
+{'nom': 'EPICEA', 'nature': 'teleski', 'duree': 12.667538411245506}
+{'nom': 'MARQUIS', 'nature': 'teleski', 'duree': 16.276560967636485}
+{'nom': 'STE AGATHE', 'nature': 'teleski', 'duree': 12.35371036286368}
+{'nom': 'GRANGES', 'nature': 'teleski', 'duree': 12.35371036286368}
+{'nom': 'COMBE', 'nature': 'teleski', 'duree': 12.667538411245506}
+{'nom': 'PTE BOSSE', 'nature': 'teleski', 'duree': 11.412226217718208}
+{'nom': 'CHANROSSA', 'nature': 'telesiege', 'duree': 0}
+{'nom': 'ROC MERLET', 'nature': 'telesiege', 'duree': 0}
+{'nom': 'ROC MUGNIER', 'nature': 'telesiege', 'duree': 0}
+{'nom': 'CREUX NOIRS', 'nature': 'telesiege', 'duree': 0}
+{'nom': 'MARMOTTES', 'nature': 'telesiege', 'duree': 0}
+{'nom': 'SUISSES', 'nature': 'telesiege', 'duree': 0}
+{'nom': 'BIOLLAY', 'nature': 'telesiege', 'duree': 0}
+{'nom': 'PRALONG', 'nature': 'telesiege', 'duree': 0}
+{'nom': 'COQS', 'nature': 'telesiege', 'duree': 0}
+{'nom': 'COL DE LA LOZE', 'nature': 'telesiege', 'duree': 0}
+{'nom': 'DOU DES LANCHES', 'nature': 'telesiege', 'duree': 0}
+{'nom': 'CRETES', 'nature': 'telesiege', 'duree': 0}
+{'nom': 'PLANTREY', 'nature': 'telesiege', 'duree': 0}
+{'nom': 'TOVETS', 'nature': 'telesiege', 'duree': 0}
+{'nom': '3 VALLEES', 'nature': 'telesiege', 'duree': 0}
+{'nom': 'CHAPELETS', 'nature': 'telesiege', 'duree': 0}
+{'nom': 'SIGNAL', 'nature': 'telesiege', 'duree': 0}
+{'nom': 'GRAVELLES', 'nature': 'telesiege', 'duree': 0}
+{'nom': 'AIGUILLE DU FRUIT', 'nature': 'telesiege', 'duree': 0}
+{'nom': 'VIZELLE', 'nature': 'telecabine', 'duree': 0}
+{'nom': 'JARDIN ALPIN', 'nature': 'telecabine', 'duree': 0}
+{'nom': 'LA TANIA', 'nature': 'telecabine', 'duree': 0}
+{'nom': 'FORET', 'nature': 'telecabine', 'duree': 0}
+{'nom': 'PRAZ', 'nature': 'telecabine', 'duree': 0}
+{'nom': 'CHENUS', 'nature': 'telecabine', 'duree': 0}
+{'nom': 'VERDONS', 'nature': 'telecabine', 'duree': 0}
+{'nom': 'GRANGETTES', 'nature': 'telecabine', 'duree': 0}
+{'nom': 'ARIONDAZ', 'nature': 'telecabine', 'duree': 0}
+{'nom': 'SAULIRE', 'nature': 'telepherique', 'duree': 0}
+{'nom': 'Renard', 'nature': 'piste verte', 'duree': 0}
+{'nom': 'Verdons A', 'nature': 'piste verte', 'duree': 0}
+{'nom': 'Verdons B', 'nature': 'piste verte', 'duree': 0}
+{'nom': 'Lac Bleu', 'nature': 'piste verte', 'duree': 0}
+{'nom': 'Loze Est', 'nature': 'piste verte', 'duree': 0}
+{'nom': 'Plan Fontaine A', 'nature': 'piste verte', 'duree': 0}
+{'nom': 'Plan Fontaine B', 'nature': 'piste verte', 'duree': 0}
+{'nom': 'Belvedere', 'nature': 'piste verte', 'duree': 0}
+{'nom': 'Praline A', 'nature': 'piste verte', 'duree': 0}
+{'nom': 'Praline B', 'nature': 'piste verte', 'duree': 0}
+{'nom': 'Plan Mugnier', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Mont Russes', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Pyramide', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Altiport A', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Altiport B', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Altiport C', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Super Pralong', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Pralong A', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Pralong B', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Biollay Verdons A', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Biollay Verdons B', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Biollay', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Anemones', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Col de la Loze', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Folyeres', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Arolles A', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Arolles B', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Cretes A', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Cretes B', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Stade', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Tovets', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Proveres', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Cospillot', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Piste Bleue', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Marquis', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Granges', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Carabosse', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Grandes Bosses A', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Grandes Bosses B', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Ariondaz', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Indiens', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Gravelles', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Prameruel', 'nature': 'piste bleue', 'duree': 0}
+{'nom': 'Jean Pachod', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Roc Merlet', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Creux A', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Creux B', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Roc Mugnier', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Lac Creux A', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Lac Creux B', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Roches Grises', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Combe Saulire A', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Combe Saulire B', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Combe Saulire C', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Park City', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Rama', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Stade Descente', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Marquetty', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Cave des Creux', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Mur', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Lanches', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Bouc Blanc A', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Bouc Blanc B', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Moretta Blanche', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Murettes', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Amoureux', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Saint Bon', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Brigues', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Loze', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Dou du Midi', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Petit Dou', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Jantzen', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Chenus', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Deviation 1550', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Bel Air', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Rochers A', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Rochers B', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Chapelets', 'nature': 'piste rouge', 'duree': 0}
+{'nom': 'Chanrossa', 'nature': 'piste noire', 'duree': 0}
+{'nom': 'Turcs A', 'nature': 'piste noire', 'duree': 0}
+{'nom': 'Turcs B', 'nature': 'piste noire', 'duree': 0}
+{'nom': 'Suisses', 'nature': 'piste noire', 'duree': 0}
+{'nom': 'Combe Pylones', 'nature': 'piste noire', 'duree': 0}
+{'nom': 'Grand Couloir', 'nature': 'piste noire', 'duree': 0}
+{'nom': 'm', 'nature': 'piste noire', 'duree': 0}
+{'nom': 'Dou des Lanches', 'nature': 'piste noire', 'duree': 0}
+{'nom': 'Jockeys', 'nature': 'piste noire', 'duree': 0}
+{'nom': 'Jean Blanc', 'nature': 'piste noire', 'duree': 0}

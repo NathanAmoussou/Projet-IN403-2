@@ -1,4 +1,5 @@
 from unidecode import unidecode
+from typing import List
 
 # Partie 1 : Structure de données
 
@@ -13,6 +14,27 @@ class Sommet():
         self.entrant = entrant
         self.sortant = sortant
         self.nom = nom
+    
+    def get_entrant(self):
+        """
+        Renvoie la liste des arcs entrants
+        :return: liste des arcs entrants
+        """
+        return self.entrant
+    
+    def get_sortant(self):
+        """
+        Renvoie la liste des arcs sortants
+        :return: liste des arcs sortants
+        """
+        return self.sortant
+    
+    def get_nom(self):
+        """
+        Renvoie le nom du sommet
+        :return: nom du sommet
+        """
+        return self.nom
 
 class Arc():
     """
@@ -36,22 +58,55 @@ class Arc():
         elif self.nature == ("piste verte" or "piste bleue" or "piste rouge" or "piste noire"):
             self.duree_1 = (duree_1 / self.echelle) / (self.v_pistes[self.nature][0] / 3.6) / 60 # durée pour un débutant
             self.duree_2 = (duree_2 / self.echelle) / (self.v_pistes[self.nature][1] / 3.6) / 60 # durée pour un fonceur
+    
+    def get_duree(self, niveau: str="débutant"):
+        """
+        Renvoie la durée de l'arc
+        :param niveau: niveau de ski (débutant ou fonceur)
+        :return: durée de l'arc
+        """
+        if niveau == "débutant":
+            return self.duree_1
+        elif niveau == "fonceur":
+            return self.duree_2
+        else:
+            raise ValueError("Le niveau doit être débutant ou fonceur")
+    
+    def get_nature(self):
+        """
+        Renvoie la nature de l'arc
+        :return: nature de l'arc
+        """
+        return self.nature
+    
+    def get_nom(self):
+        """
+        Renvoie le nom de l'arc
+        :return: nom de l'arc
+        """
+        return self.nom
 
+    def __str__(self):
+        """
+        Renvoie le nom de l'arc
+        :return: nom de l'arc
+        """
+        return f"{self.nom} ({self.nature})"
 
 arcs = {
     # Téléskis
     "PYRAMIDE": Arc("PYRAMIDE", "téléski", 3.2),
-    "SOURCES": Arc("SOURCES", "téléski", ),
-    "ROCHER DE L'OMBRE": Arc("ROCHER DE L'OMBRE", "téléski"),
-    "PRAZ JUGET": Arc("PRAZ JUGET", "téléski"),
-    "BOUC BLANC": Arc("BOUC BLANC", "téléski"),
-    "GROS MURGER": Arc("GROS MURGER", "téléski"),
-    "LOZE": Arc("LOZE", "téléski"),
+    "SOURCES": Arc("SOURCES", "téléski", 2.3),
+    "ROCHER DE L'OMBRE": Arc("ROCHER DE L'OMBRE", "téléski", 3.3),
+    "PRAZ JUGET": Arc("PRAZ JUGET", "téléski", 3.5),
+    "BOUC BLANC": Arc("BOUC BLANC", "téléski", 4.8),
+    "GROS MURGER": Arc("GROS MURGER", "téléski", 3.3),
+    "LOZE": Arc("LOZE", "téléski", 3.7),
     "STADE": Arc("STADE", "téléski", 1.1),
-    "EPICEA": Arc("EPICEA", "téléski"),
+    "EPICEA": Arc("EPICEA", "téléski", 1.7),
     "MARQUIS": Arc("MARQUIS", "téléski", 4),
     "STE AGATHE": Arc("STE AGATHE", "téléski", 1.5),
-    "STADE": Arc("STADE", "téléski"),
+    "STADE": Arc("STADE", "téléski", 2),
     "GRANGES": Arc("GRANGES", "téléski", 1.5),
     "COMBE": Arc("COMBE", "téléski", 1.7),
     "PTE BOSSE": Arc("PTE BOSSE", "téléski", 0.9),
@@ -64,12 +119,12 @@ arcs = {
     "SUISSES": Arc("SUISSES", "télésiège", 4.3),
     "BIOLLAY": Arc("BIOLLAY", "télésiège", 3.3),
     "PRALONG": Arc("PRALONG", "télésiège", 3.1),
-    "COQS": Arc("COQS", "télésiège"),
-    "COL DE LA LOZE": Arc("COL DE LA LOZE", "télésiège"),
-    "DOU DES LANCHES": Arc("DOU DES LANCHES", "télésiège"),
-    "CRÊTES": Arc("CRÊTES", "télésiège"),
-    "PLANTREY": Arc("PLANTREY", "télésiège"),
-    "TOVETS": Arc("TOVETS", "télésiège"),
+    "COQS": Arc("COQS", "télésiège", 3.7),
+    "COL DE LA LOZE": Arc("COL DE LA LOZE", "télésiège", 2.5),
+    "DOU DES LANCHES": Arc("DOU DES LANCHES", "télésiège", 2.5),
+    "CRÊTES": Arc("CRÊTES", "télésiège", 2),
+    "PLANTREY": Arc("PLANTREY", "télésiège", 3.5),
+    "TOVETS": Arc("TOVETS", "télésiège", 2),
     "3 VALLÉES": Arc("3 VALLÉES", "télésiège", 4.3),
     "CHAPELETS": Arc("CHAPELETS", "télésiège", 3.5), 
     "SIGNAL": Arc("SIGNAL", "télésiège", 4.5),
@@ -77,24 +132,24 @@ arcs = {
     "AIGUILLE DU FRUIT": Arc("AIGUILLE DU FRUIT", "télésiège", 4.6),
     # Télécabines
     "VIZELLE": Arc("VIZELLE", "télécabine", 3.8),
-    "JARDIN ALPIN": Arc("JARDIN ALPIN", "télécabine"),
-    "LA TANIA": Arc("LA TANIA", "télécabine"),
-    "FORET": Arc("FORET", "télécabine"),
-    "PRAZ": Arc("PRAZ", "télécabine"),
-    "CHENUS": Arc("CHENUS", "télécabine"),
-    "VERDONS": Arc("VERDONS", "télécabine"),
-    "GRANGETTES": Arc("GRANGETTES", "télécabine"),
+    "JARDIN ALPIN": Arc("JARDIN ALPIN", "télécabine", 3.2),
+    "LA TANIA": Arc("LA TANIA", "télécabine", 5.2),
+    "FORET": Arc("FORET", "télécabine", 4.6),
+    "PRAZ": Arc("PRAZ", "télécabine", 5),
+    "CHENUS": Arc("CHENUS", "télécabine", 4.3),
+    "VERDONS": Arc("VERDONS", "télécabine", 4),
+    "GRANGETTES": Arc("GRANGETTES", "télécabine", 2.3),
     "ARIONDAZ": Arc("ARIONDAZ", "télécabine", 5.6),
     # Téléphériques
     "SAULIRE": Arc("SAULIRE", "téléphérique", 4.1),
     # Pistes vertes
-    "Renard": Arc("Renard", "piste verte"),
-    "Verdons A": Arc("Verdons A", "piste verte"),
-    "Verdons B": Arc("Verdons B", "piste verte"),
-    "Lac Bleu": Arc("Lac Bleu", "piste verte"),
-    "Loze Est": Arc("Loze Est", "piste verte"),
-    "Plan Fontaine A": Arc("Plan Fontaine A", "piste verte"),
-    "Plan Fontaine B": Arc("Plan Fontaine B", "piste verte"),
+    "Renard": Arc("Renard", "piste verte", 2.3),
+    "Verdons A": Arc("Verdons A", "piste verte", 2.3),
+    "Verdons B": Arc("Verdons B", "piste verte", 1.7),
+    "Lac Bleu": Arc("Lac Bleu", "piste verte", 3.7),
+    "Loze Est": Arc("Loze Est", "piste verte", 3.4),
+    "Plan Fontaine A": Arc("Plan Fontaine A", "piste verte", 2.1),
+    "Plan Fontaine B": Arc("Plan Fontaine B", "piste verte", 3.3),
     "Belvédère": Arc("Belvédère", "piste verte", 3.2),
     "Praline A": Arc("Praline A", "piste verte", 3),
     "Praline B": Arc("Praline B", "piste verte", 2.5),
@@ -111,16 +166,16 @@ arcs = {
     "Biollay Verdons A": Arc("Biollay Verdons A", "piste bleue", 1.8),
     "Biollay Verdons B": Arc("Biollay Verdons B", "piste bleue", 1.7),
     "Biollay": Arc("Biollay", "piste bleue", 3.2),
-    "Anémones": Arc("Anémones", "piste bleue"),
-    "Col de la Loze": Arc("Col de la Loze", "piste bleue"),
-    "Folyères": Arc("Folyères", "piste bleue"),
-    "Arolles A": Arc("Arolles A", "piste bleue"),
-    "Arolles B": Arc("Arolles B", "piste bleue"),
-    "Crêtes A": Arc("Crêtes A", "piste bleue"),
-    "Crêtes B": Arc("Crêtes B", "piste bleue"),
-    "Stade": Arc("Stade", "piste bleue"),
-    "Tovets": Arc("Tovets", "piste bleue"),
-    "Provères": Arc("Provères", "piste bleue"),
+    "Anémones": Arc("Anémones", "piste bleue", 4.3),
+    "Col de la Loze": Arc("Col de la Loze", "piste bleue", 2.5),
+    "Folyères": Arc("Folyères", "piste bleue", 3.3),
+    "Arolles A": Arc("Arolles A", "piste bleue", 1.5),
+    "Arolles B": Arc("Arolles B", "piste bleue", 2.3),
+    "Crêtes A": Arc("Crêtes A", "piste bleue", 1),
+    "Crêtes B": Arc("Crêtes B", "piste bleue", 1.5),
+    "Stade": Arc("Stade", "piste bleue", 2.3),
+    "Tovets": Arc("Tovets", "piste bleue", 2.3),
+    "Provères": Arc("Provères", "piste bleue", 2.3),
     "Cospillot": Arc("Cospillot", "piste bleue"),
     "Piste Bleue": Arc("Piste Bleue", "piste bleue", 4.1),
     "Marquis": Arc("Marquis", "piste bleue", 4.1),
@@ -146,24 +201,24 @@ arcs = {
     "Combe Saulire C": Arc("Combe Saulire C", "piste rouge", 1.2),
     "Park City": Arc("Park City", "piste rouge", 2.3),
     "Rama": Arc("Rama", "piste rouge", 1.5),
-    "Stade Descente": Arc("Stade Descente", "piste rouge"),
+    "Stade Descente": Arc("Stade Descente", "piste rouge", 3.3),
     "Marquetty": Arc("Marquetty", "piste rouge", 3.4),
     "Cave des Creux": Arc("Cave des Creux", "piste rouge", 2.2),
     "Mur": Arc("Mur", "piste rouge", 2.8),
-    "Lanches": Arc("Lanches", "piste rouge"),
-    "Bouc Blanc A": Arc("Bouc Blanc A", "piste rouge"),
-    "Bouc Blanc B": Arc("Bouc Blanc B", "piste rouge"),
-    "Moretta Blanche": Arc("Moretta Blanche", "piste rouge"),
-    "Murettes": Arc("Murettes", "piste rouge"),
-    "Amoureux": Arc("Amoureux", "piste rouge"),
-    "Saint Bon": Arc("Saint Bon", "piste rouge"),
-    "Brigues": Arc("Brigues", "piste rouge"),
-    "Loze": Arc("Loze", "piste rouge"),
-    "Dou du Midi": Arc("Dou du Midi", "piste rouge"),
-    "Petit Dou": Arc("Petit Dou", "piste rouge"),
-    "Jantzen": Arc("Jantzen", "piste rouge"),
-    "Chenus": Arc("Chenus", "piste rouge"),
-    "Déviation 1550": Arc("Déviation 1550", "piste rouge"),
+    "Lanches": Arc("Lanches", "piste rouge", 3.5),
+    "Bouc Blanc A": Arc("Bouc Blanc A", "piste rouge", 2.7),
+    "Bouc Blanc B": Arc("Bouc Blanc B", "piste rouge", 2),
+    "Moretta Blanche": Arc("Moretta Blanche", "piste rouge", 3.3),
+    "Murettes": Arc("Murettes", "piste rouge", 3.8),
+    "Amoureux": Arc("Amoureux", "piste rouge", 6),
+    "Saint Bon": Arc("Saint Bon", "piste rouge", 4),
+    "Brigues": Arc("Brigues", "piste rouge", 6),
+    "Loze": Arc("Loze", "piste rouge", 3.7),
+    "Dou du Midi": Arc("Dou du Midi", "piste rouge", 5.5),
+    "Petit Dou": Arc("Petit Dou", "piste rouge", 3.7),
+    "Jantzen": Arc("Jantzen", "piste rouge", 4.3),
+    "Chenus": Arc("Chenus", "piste rouge", 3.7),
+    "Déviation 1550": Arc("Déviation 1550", "piste rouge", 5.5),
     "Stade": Arc("Stade", "piste rouge", 1.1),
     "Bel Air": Arc("Bel Air", "piste rouge", 2.1),
     "Rochers A": Arc("Rochers A", "piste rouge", 2.8),
@@ -177,12 +232,10 @@ arcs = {
     "Combe Pylones": Arc("Combe Pylones", "piste noire", 3.2),
     "Grand Couloir": Arc("Grand Couloir", "piste noire", 3.2),
     "m": Arc("m", "piste noire", 4),
-    "Dou des Lanches": Arc("Dou des Lanches", "piste noire"),
-    "Jockeys": Arc("Jockeys", "piste noire"),
-    "Jean Blanc": Arc("Jean Blanc", "piste noire"),
+    "Dou des Lanches": Arc("Dou des Lanches", "piste noire", 2.5),
+    "Jockeys": Arc("Jockeys", "piste noire", 3.8),
+    "Jean Blanc": Arc("Jean Blanc", "piste noire", 6),
 }
-
-print(arcs["PYRAMIDE"].duree)
 
 sommets = [
     Sommet(
@@ -361,28 +414,9 @@ sommets = [
     )
 ]
 
-# Exemple
+# Dijkstra
 
-def afficher_sommets_adjacents():
-    print("Requête type : Je suis en haut de Chanrossa.")
-    input_utilisateur = input("Où êtes-vous ? ")
-    input_utilisateur = input_utilisateur.strip(".").split(" ")
-    indice_localisation = input_utilisateur.index("de")
-    localisation = " ".join(input_utilisateur[indice_localisation+1:])
-    #print(localisation)
-    sommet_localisation = None
-    if "haut" in input_utilisateur:
-        i = 0
-        while sommet_localisation is None:
-            if arcs[localisation] in sommets[i].entrant:
-                sommet_localisation = sommets[i]
-        i += 1
-    elif "bas" in input_utilisateur:
-        pass
-    print(sommet_localisation)
-    print(sommets[0])
-
-#afficher_sommets_adjacents()
+# Écriture des arcs et sommets dans des fichiers
 
 def ecrire_arcs(arcs, nom_fichier):
     """
@@ -395,7 +429,8 @@ def ecrire_arcs(arcs, nom_fichier):
         for arc in arcs.values():
             nom_sans_accents = unidecode(arc.nom)
             nature_sans_accents = unidecode(arc.nature)
-            f.write(f"{{'nom': '{nom_sans_accents}', 'nature': '{nature_sans_accents}'}}\n")
+            duree = arc.duree if hasattr(arc, 'duree') else 0
+            f.write(f"{{'nom': '{nom_sans_accents}', 'nature': '{nature_sans_accents}', 'duree': {duree}}}\n")
 
 def ecrire_sommets(sommets, nom_fichier):
     """
