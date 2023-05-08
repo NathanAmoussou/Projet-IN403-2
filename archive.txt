@@ -1,16 +1,93 @@
-if nature == "téléski":
-    pass
-elif nature == "télésiège":
-    pass
-elif nature == "télécabine":
-    pass
-elif nature == "téléphérique":
-    pass
-elif nature == "piste verte":
-    pass
-elif nature == "piste bleue":
-    pass
-elif nature == "piste rouge":
-    pass
-elif nature == "piste noire":
-    pass
+fd = open('liste_plus_courtes_distances.txt', 'w')
+for sommet1 in sommets:
+    for sommet2 in sommets:
+        if sommet1 != sommet2:
+            distance = distance_minimale(sommet1, sommet2, sommets)
+            if distance:
+                fd.write(f"{sommet1.nom} -> {sommet2.nom} : {distance}\n")
+fd.close()
+
+chemin, distance = dijkstra(sommets[0], sommets[24])
+print(' -> '.join([sommet.nom for sommet in chemin]))
+print(distance)
+
+print("> Calcul du chemin le plus court entre deux points de la station de ski de Courchevel")
+print("> Pour indiquer un sommet, il faut soit entrer son nom exacte (tel qu'indiqué sur la carte), soit son numéro,")
+print("> soit 'bas' ou 'haut' suivi du nom d'une piste ou d'une remontée.")
+input_s = sommets_dict[input("> Sommet de départ : ")]
+input_p = sommets_dict[input("> Sommet d'arrivée : ")]
+
+plus_court_chemin, distance = dijkstra(input_s, input_p, sommets)
+itineraire = construire_itineraire(plus_court_chemin, sommets)
+print("> Itinéraire :")
+for arc in itineraire:
+    print(arc.nom)
+
+# Écriture des arcs et sommets dans des fichiers
+
+def ecrire_arcs(arcs, nom_fichier, niveau='debutant'):
+    """
+    Écrit les arcs dans un fichier texte.
+    :arcs: liste d'arcs
+    :nom_fichier: nom du fichier dans lequel écrire
+    :niveau: niveau du skieur ('debutant' ou 'avance')
+    :return: None
+    """
+    with open(nom_fichier, 'w') as f:
+        for arc in arcs.values():
+            nom_sans_accents = unidecode(arc.nom)
+            nature_sans_accents = unidecode(arc.nature)
+            if hasattr(arc, 'duree'):
+                duree = arc.duree
+            elif niveau == 'debutant' and hasattr(arc, 'duree_1'):
+                duree = arc.duree_1
+            elif niveau == 'avance' and hasattr(arc, 'duree_2'):
+                duree = arc.duree_2
+            else:
+                duree = 0
+            f.write(f"{{'nom': '{nom_sans_accents}', 'nature': '{nature_sans_accents}', 'duree': {round(duree, 2)}}}\n")
+
+def ecrire_sommets(sommets, nom_fichier):
+    """
+    Écrit les sommets dans un fichier texte.
+    :sommets: liste de sommets
+    :nom_fichier: nom du fichier dans lequel écrire
+    :return: None
+    """
+    with open(nom_fichier, 'w') as f:
+        for sommet in sommets:
+            entrant = [unidecode(arc.nom) for arc in sommet.entrant]
+            sortant = [unidecode(arc.nom) for arc in sommet.sortant]
+            nom = unidecode(sommet.nom) if sommet.nom else ""
+            entrant_str = str(entrant)
+            sortant_str = str(sortant)
+            nom_str = f"'nom': '{nom}'" if nom else ""
+            f.write(f"{{'entrant': {entrant_str}, 'sortant': {sortant_str}, {nom_str}}}\n")
+
+ecrire_arcs(arcs, "liste_pistes.txt")
+ecrire_sommets(sommets, "liste_sommets.txt")
+
+def chemin_minimal(sommet1, sommet2, sommets, niveau='debutant'):
+    """
+    Retourne l'arc le plus court entre deux sommets adjacents.
+    :sommet1: premier sommet
+    :sommet2: deuxième sommet
+    :sommets: liste de tous les sommets du graphe
+    :niveau: niveau du skieur ('debutant' ou 'avance')
+    :return: arc le plus court entre les deux sommets si ils sont adjacents, None sinon
+    """
+    if not arc_existe(sommet1, sommet2, sommets):
+        return None
+    distances = []
+    for arc in sommet1.sortant:
+        if arc in sommet2.entrant:
+            if hasattr(arc, 'duree'):
+                distances.append(arc.duree)
+            elif niveau == 'debutant' and hasattr(arc, 'duree_1'):
+                distances.append(arc.duree_1)
+            elif niveau == 'avance' and hasattr(arc, 'duree_2'):
+                distances.append(arc.duree_2)
+    return min(distances) if distances else None
+
+from unidecode import unidecode
+from typing import List
