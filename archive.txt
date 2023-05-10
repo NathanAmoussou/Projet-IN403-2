@@ -91,3 +91,19 @@ def chemin_minimal(sommet1, sommet2, sommets, niveau='debutant'):
 
 from unidecode import unidecode
 from typing import List
+
+
+#sommets_dict_haut = {(arc.get_nom() for arc in sommet.entrant): sommet for sommet in sommets}
+""" sommets_dict_haut = dict()
+for sommet in sommets:
+    l = list()
+    for arc in sommet.entrant:
+        l.append(arc.get_nom())
+    sommets_dict_haut[tuple(l)] = sommet.nom """
+
+    dijkstra_test = dijkstra(sommets_dict['PRAZ JUGET'], sommets_dict['CREUX'], niveau='avance', sommets=sommets)
+print(" -> ".join([sommet.nom for sommet in dijkstra_test[0]]))
+for i in range(len(dijkstra_test[0]) - 1):
+    x = distance_minimale(dijkstra_test[0][i], dijkstra_test[0][i+1], sommets)[1]
+    print(x.nature, x.nom)
+print(dijkstra_test[1])

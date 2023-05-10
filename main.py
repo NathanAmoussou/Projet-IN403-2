@@ -68,6 +68,13 @@ class Arc():
             return self.duree_2
         else:
             raise ValueError("Le niveau doit être débutant ou fonceur")
+        
+    def get_nom(self):
+        """
+        Renvoie le nom de l'arc
+        :return: nom de l'arc
+        """
+        return self.nom
     
     def get_nature(self):
         """
@@ -75,20 +82,6 @@ class Arc():
         :return: nature de l'arc
         """
         return self.nature
-    
-    def get_nom(self):
-        """
-        Renvoie le nom de l'arc
-        :return: nom de l'arc
-        """
-        return self.nom
-
-    def __str__(self):
-        """
-        Renvoie le nom de l'arc
-        :return: nom de l'arc
-        """
-        return f"{self.nom} ({self.nature})"
 
 arcs = {
     # Téléskis
@@ -371,7 +364,7 @@ sommets = [
         "ST BON - 1100m"
     ),
     Sommet(
-        [arcs["Déviation 1550"], arcs["Dou du Midi"], arcs["Stade"], arcs["Provères"], arcs["Tovets"]],
+        [arcs["Déviation 1550"], arcs["Dou du Midi"], arcs["Provères"], arcs["Tovets"]], #arcs["Stade"]
         [arcs["TOVETS"], arcs["GRANGETTES"]],
         "COURCHEVEL - 1550m"
     ),
@@ -429,6 +422,8 @@ sommets = [
 ]
 
 sommets_dict = {sommet.nom: sommet for sommet in sommets}
+sommets_dict_bas = {tuple(arc.get_nom() for arc in sommet.entrant): sommet for sommet in sommets}
+sommets_dict_haut = {tuple(arc.get_nom() for arc in sommet.sortant): sommet for sommet in sommets}
 
 # Dijkstra
 
@@ -543,19 +538,61 @@ def construire_itineraire(chemin, sommets):
         itineraire.append(distance_minimale(chemin[i], chemin[i+1], sommets))
     return itineraire
 
-dijkstra_test = dijkstra(sommets_dict['PRAZ JUGET'], sommets_dict['CREUX'], niveau='avance', sommets=sommets)
-print(" -> ".join([sommet.nom for sommet in dijkstra_test[0]]))
-for i in range(len(dijkstra_test[0]) - 1):
-    x = distance_minimale(dijkstra_test[0][i], dijkstra_test[0][i+1], sommets)[1]
-    print(x.nature, x.nom)
-print(dijkstra_test[1])
-
 # Interface CLI
 
-
-
-
-
-
-
+def CLI():
+    print("> Bienvenue sur l'interface de recherche d'itinéraire de la station de ski de Valmorel.")
+    print("> Pour quitter, entrez 'q'.")
+    while True:
+        print("> Veuillez entrer votre niveau de ski (debutant ou avance) :")
+        niveau = input("> ")
+        if niveau == 'q':
+            break
+        print("> Veuillez entrer 'haut' si vous êtes en haut d'une piste/remonté, 'bas' sinon (ou ' ' si vous êtes à une station):")
+        position = input("> ")
+        if position == 'q':
+            break
+        print("> Veuillez entrer le nom de la piste/remontée ou de la station où vous vous trouvez :")
+        depart = input("> ")
+        if depart == 'q':
+            break
+        if position == 'haut':
+            for liste in sommets_dict_haut:
+                if depart in liste:
+                    depart = sommets_dict_haut[liste]
+        elif position == 'bas':
+            for liste in sommets_dict_bas:
+                if depart in liste:
+                    depart = sommets_dict_bas[liste]
+        else:
+            depart = sommets_dict[depart]
+        print("> Veuillez entrer 'haut' si vous voulez aller en haut d'une piste/remonté, 'bas' sinon (ou ' ' si vous voulez aller à une station):")
+        position = input("> ")
+        if position == 'q':
+            break
+        print("> Veuillez entrer le nom de la piste/remontée ou de la station où vous voulez aller :")
+        arrivee = input("> ")
+        if arrivee == 'q':
+            break
+        if position == 'haut':
+            for liste in sommets_dict_haut:
+                if arrivee in liste:
+                    arrivee = sommets_dict_haut[liste]
+        elif position == 'bas':
+            for liste in sommets_dict_bas:
+                if arrivee in liste:
+                    arrivee = sommets_dict_bas[liste]
+        else:
+            arrivee = sommets_dict[arrivee]
+        try:
+            chemin = dijkstra(depart, arrivee, niveau=niveau, sommets=sommets)
+            for i in range(len(chemin[0]) - 1):
+                x = distance_minimale(chemin[0][i], chemin[0][i+1], sommets)[1]
+                if x.nature == 'piste verte' or x.nature == 'piste bleue' or x.nature == 'piste rouge' or x.nature == 'piste noire' or x.nature == 'télécabine':
+                    print(f"   {i}. Emprunter la {x.nature} {x.nom}")
+                else:
+                    print(f"   {i}. Emprunter le {x.nature}  {x.nom}")
+            print(f"> Temps : {round(chemin[1])} minutes")
+        except:
+            print("> Il n'existe pas de chemin entre les deux sommets.")
 
