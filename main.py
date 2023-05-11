@@ -596,3 +596,4 @@ def CLI():
         except:
             print("> Il n'existe pas de chemin entre les deux sommets.")
 
+CLI()
