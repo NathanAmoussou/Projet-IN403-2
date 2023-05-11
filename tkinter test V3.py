@@ -1,6 +1,6 @@
 from tkinter import *
 from PIL import Image, ImageTk
-
+ 
 root = Tk()
 root.title('Station de ski')
 root.geometry('1400x700')
